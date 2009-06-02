@@ -1,0 +1,6 @@
+<project name="spiralcraft-examples-web" default="retrieve" basedir=".">
+  
+  <import file="../../build/build-spiralcraft-common.xml"/>
+
+</project>
+
