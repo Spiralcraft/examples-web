@@ -1,0 +1,13 @@
+<project name="spiralcraft-examples-web" default="launch" basedir=".">
+
+
+  
+  <target name="launch">
+    <devdaemon env="httpd" codebase=".."/>
+      
+  </target>
+
+
+  <import file="../build.xml"/>
+</project>
+  
