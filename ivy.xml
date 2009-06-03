@@ -9,7 +9,6 @@
     <dependency org="spiralcraft"  name="servlet"  rev="latest.integration"/>
     <dependency org="spiralcraft"  name="pioneer"  rev="latest.integration"/>
     <dependency org="spiralcraft"  name="textgen"  rev="latest.integration"/>
-    <exclude artifact="spiralcraft-core-test"/>
     <exclude artifact="spiralcraft-textgen-test"/>
   </dependencies>
 </ivy-module>

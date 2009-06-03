@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="Cp1252"?>
+
+<data:Space
+  xmlns:data-xml="class:/spiralcraft/data/xml/"
+  xmlns:data="class:/spiralcraft/data/"
+  xmlns:example="class:/spiralcraft/data/test/example/"
+  >
+  <stores>
+    <data-xml:XmlStore>
+      <baseResourceURI>context://data/live/
+      </baseResourceURI>
+      
+      <schema ref="example:Example.schema.xml"/>
+      
+    </data-xml:XmlStore>
+  </stores>
+  
+</data:Space>

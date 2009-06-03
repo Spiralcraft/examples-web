@@ -1,5 +1,6 @@
 <httpd:MultiAliasHttpServiceContext
   xmlns:httpd="class:/spiralcraft/pioneer/httpd/"
+  xmlns:autofilter="class:/spiralcraft/servlet/autofilter/"
   >
                   
   <documentRoot>webroot
@@ -8,6 +9,33 @@
   <maxSessionInactiveInterval>7200
   </maxSessionInactiveInterval>
       
+  <filterMappings>
+    <httpd:FilterMapping>
+      <filterName>controller
+      </filterName>
+    
+      <URLPattern>*
+      </URLPattern>
+    </httpd:FilterMapping>
+  </filterMappings>
+  
+  <filters>
+    <httpd:FilterHolder>
+      <filterName>controller
+      </filterName>
+      
+      <filterInstance>
+        <autofilter:Controller>
+          <dataURI>../data/live/
+          </dataURI>
+          <configURI>../config/
+          </configURI>
+        </autofilter:Controller>
+      </filterInstance>
+      
+    </httpd:FilterHolder>
+  </filters>
+  
   <servletMappings>
 
     <httpd:ServletMapping>

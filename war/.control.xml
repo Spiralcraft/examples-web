@@ -1,0 +1,14 @@
+<autofilter:AutoFilter.list
+  xmlns:autofilter="class:/spiralcraft/servlet/autofilter/"
+  >
+  <autofilter:ReferenceFocusFilter>
+
+    <instanceURI>context://config/Space.xml
+    </instanceURI>
+                
+    <scope>CONSTANT
+    </scope>
+    
+  </autofilter:ReferenceFocusFilter>
+</autofilter:AutoFilter.list>
+  
