@@ -1,0 +1,40 @@
+<%@namespace
+  webuic="class:/spiralcraft/servlet/webui/components/"
+  html="class:/spiralcraft/servlet/webui/components/html/"
+  %> 
+ 
+  <%webuic:DataSessionComponent
+    typeURI="context:/WEB-INF/webui/CustomerEditSession"
+    %>
+    <%html:Form%>
+        <%html:AggregateEditor 
+          x="allCustomers"
+          padSize="3"
+          padX="displayName==null"          
+          %> 
+          <%Iterate"%>
+            <%Group x="true"%>
+              <%GroupHeader%>
+                <table>
+              <%/GroupHeader%>
+                <tr>
+                  <td><%=id/%></td>
+                  <td><%html:TextInput x="displayName"/%></td>
+                </tr>
+              <%GroupFooter%>
+                </table>
+              <%/GroupFooter%>
+            <%/Group%>
+          <%/Iterate%>
+
+          <%html:SubmitButton
+            x="[html:AggregateEditor].saveCommand()"
+            label="submit"
+          /%>
+
+        <%/html:AggregateEditor%>
+    <%/html:Form%>
+  
+  <%/webuic:DataSessionComponent%>
+  
+<%/@namespace%>

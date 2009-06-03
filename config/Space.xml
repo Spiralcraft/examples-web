@@ -7,7 +7,7 @@
   >
   <stores>
     <data-xml:XmlStore>
-      <baseResourceURI>context://data/live/
+      <baseResourceURI>context://data/
       </baseResourceURI>
       
       <schema ref="example:Example.schema.xml"/>

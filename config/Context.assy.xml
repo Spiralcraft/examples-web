@@ -3,9 +3,6 @@
   xmlns:autofilter="class:/spiralcraft/servlet/autofilter/"
   >
                   
-  <documentRoot>webroot
-  </documentRoot>
-
   <maxSessionInactiveInterval>7200
   </maxSessionInactiveInterval>
       
@@ -47,6 +44,17 @@
       </URLPattern>
         
     </httpd:ServletMapping>
+
+    <httpd:ServletMapping>
+       
+      <servletName>webui
+      </servletName>
+        
+      <URLPattern>*.webui
+      </URLPattern>
+        
+    </httpd:ServletMapping>
+
   </servletMappings>
                     
   <servletHolders>
@@ -61,5 +69,15 @@
                            
     </httpd:ServletHolder>
                         
+    <httpd:ServletHolder>
+            
+      <servletName>webui
+      </servletName>
+            
+      <servletClass>spiralcraft.servlet.webui.UIServlet
+      </servletClass>
+            
+    </httpd:ServletHolder>
+    
   </servletHolders>
 </httpd:MultiAliasHttpServiceContext>

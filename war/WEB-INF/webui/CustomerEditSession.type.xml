@@ -1,0 +1,18 @@
+<meta:Type
+  xmlns:meta="class:/spiralcraft/data/types/meta/"
+  xmlns:query="class:/spiralcraft/data/query/"
+  xmlns:example="class:/spiralcraft/data/test/example/"
+  >
+  <fields>
+    <meta:QueryField>
+      <name>allCustomers
+      </name>
+      <query>
+        <query:Scan>
+          <type><example:Customer.type/>
+          </type>
+        </query:Scan>
+      </query>
+    </meta:QueryField>
+  </fields>
+</meta:Type>
