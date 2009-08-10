@@ -1,0 +1,35 @@
+<%@namespace
+  webuic="class:/spiralcraft/servlet/webui/components/"
+  html="class:/spiralcraft/servlet/webui/components/html/"
+  cw="context:/WEB-INF/webui/"
+  %> 
+ 
+  <%webuic:DataSessionComponent
+    typeX="[@cw:CustomerEditSession].type"
+    %>
+    <%html:Form%>
+    
+    
+    
+      <%html:RadioGroup
+        x="[cw:CustomerEditSession].selectedCustomerId"
+        source="[cw:CustomerEditSession].allCustomers"
+        %>
+        <%Iterate%>
+          <%html:RadioButton value=".id"%><%=.displayName/%>
+          <%/html:RadioButton%>
+          <br/>
+        <%/Iterate%>
+      <%/html:RadioGroup%>
+
+
+
+      <%html:SubmitButton
+        label="submit"
+      /%>  
+        
+    <%/html:Form%>
+  
+  <%/webuic:DataSessionComponent%>
+  
+<%/@namespace%>

@@ -1,0 +1,3 @@
+<%@include resource="context:/WEB-INF/webui/skin.webui"%>
+  Thanks!
+<%/@include%>    

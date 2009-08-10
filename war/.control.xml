@@ -1,5 +1,6 @@
 <autofilter:AutoFilter.list
   xmlns:autofilter="class:/spiralcraft/servlet/autofilter/"
+  xmlns:smtp="class:/spiralcraft/net/smtp/"
   >
   <autofilter:ReferenceFocusFilter>
 
@@ -10,5 +11,12 @@
     </scope>
     
   </autofilter:ReferenceFocusFilter>
+  
+  <autofilter:ReferenceFocusFilter>
+        
+    <instanceURI>context://config/SMTPConnector.xml
+    </instanceURI>
+        
+  </autofilter:ReferenceFocusFilter>   
 </autofilter:AutoFilter.list>
   

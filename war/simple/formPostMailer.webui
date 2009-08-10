@@ -1,0 +1,59 @@
+<%@namespace
+  html="class:/spiralcraft/servlet/webui/components/html/"
+  webuic="class:/spiralcraft/servlet/webui/components/"
+  %>
+  <%@include resource="context:/WEB-INF/webui/skin.webui"%>
+    <%html:Form%>
+  
+      <%webuic:SMTP 
+        templateURI="context:/WEB-INF/webui/simpleFormEmail.tgl"
+        senderX='"mike.toth@spiralcraft.com"'
+        recipientX='"mike.toth@spiralcraft.com"'        
+        debug="true"
+        %>
+
+
+        <!-- Standard form controls go here -->
+        
+        <label labelFor="name">Name</label>
+        <input type="text" name="name"/>
+        <br/>
+
+        <label labelFor="street">Street</label>
+        <input type="text" name="street"/>
+        <br/>
+
+        <label labelFor="city">City</label>
+        <input type="text" name="city"/>
+
+        <label labelFor="state">St</label>
+        <input type="text" name="state"/>
+
+        <label labelFor="zip">Zip</label>
+        <input type="text" name="zip"/>
+        <br/>
+        <!-- / Standard form controls go here -->
+
+
+        
+        <%html:SubmitButton 
+          name="submit" 
+          x='[webuic:SMTP].sendCommand
+               ([html:Form].redirectCommand("formPostThankYou.webui"))
+            '
+          label="Submit"
+        /%>
+        
+        <%With x="[webuic:SMTP] getState().getErrors()"%>
+          <%If x=".!=null"%>
+            <div class="error">
+              <%Iterate%>
+                <%=./%><br/>
+              <%/Iterate%>
+            </div>
+          <%/If%>
+        <%/With%>
+      <%/webuic:SMTP%>
+    <%/html:Form%>
+  <%/@include%>    
+<%/@namespace%>

@@ -1,6 +1,11 @@
 <project name="spiralcraft-examples-web" default="retrieve" basedir=".">
   
   <import file="../../build/build-spiralcraft-common.xml"/>
+  
+  <target name="retrieve" depends="build-ivy.retrieve">
+    <devtask env="versions"/>
+
+  </target>
 
 </project>
 

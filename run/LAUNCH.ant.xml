@@ -1,4 +1,4 @@
-<project name="spiralcraft-examples-web" default="launch" basedir=".">
+<project name="spiralcraft-examples-web-run" default="launch" basedir=".">
 
 
   

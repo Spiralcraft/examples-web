@@ -1,10 +1,11 @@
 <%@namespace
   webuic="class:/spiralcraft/servlet/webui/components/"
   html="class:/spiralcraft/servlet/webui/components/html/"
+  cw="context:/WEB-INF/webui/"  
   %> 
  
   <%webuic:DataSessionComponent
-    typeURI="context:/WEB-INF/webui/CustomerEditSession"
+    typeX="[@cw:CustomerEditSession].type"
     %>
     <%html:Form%>
         <%html:AggregateEditor x="allCustomers"%>

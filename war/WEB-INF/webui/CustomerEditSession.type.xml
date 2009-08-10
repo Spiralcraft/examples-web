@@ -14,5 +14,21 @@
         </query:Scan>
       </query>
     </meta:QueryField>
+    
+    <meta:Field>
+      <name>selectedCustomer
+      </name>
+      
+      <type><example:Customer.type/>
+      </type>
+    </meta:Field>
+
+    <meta:Field>
+      <name>selectedCustomerId
+      </name>
+      
+      <type><Integer.type/>
+      </type>
+    </meta:Field>
   </fields>
 </meta:Type>

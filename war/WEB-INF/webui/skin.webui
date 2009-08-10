@@ -1,0 +1,16 @@
+<html>
+  <head>
+  </head>
+  <body>
+  
+    <!-- skin main insert -->
+    
+    
+    <%@insert/%>
+    
+    
+    <!-- / skin main insert -->
+    
+    
+  </body>
+</html>
