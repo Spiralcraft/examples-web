@@ -5,7 +5,10 @@
   >
 
   
-  <server>mail.spiralcraft.com
+  <server>localhost
   </server>
+  
+  <testMode>true
+  </testMode>
   
 </smtp:SMTPConnector>

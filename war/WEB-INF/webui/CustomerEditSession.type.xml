@@ -30,5 +30,22 @@
       <type><Integer.type/>
       </type>
     </meta:Field>
+    
+    <meta:Field>
+      <name>userAgent
+      </name>
+      
+      <type><String.type/>
+      </type>
+    </meta:Field>
+    
+    <meta:Field>
+      <name>elapsedSessionTime
+      </name>
+      
+      <type><Long.type/>
+      </type>
+    </meta:Field>
+    
   </fields>
 </meta:Type>

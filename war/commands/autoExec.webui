@@ -1,0 +1,21 @@
+<%@namespace
+  webuic="class:/spiralcraft/servlet/webui/components/"
+  task="class:/spiralcraft/task/"
+  servlet="class:/javax/servlet/http/"
+  %> 
+  <%@include resource="context:/WEB-INF/webui/skin.webui"%>
+
+    <%task:Debug
+      messageX
+        ='"Message from "
+          +[servlet:HttpServletRequest].requestURI
+          +": AutoExec command fired"
+         '
+      %>
+      <%webuic:AutoExec x="command()"/%>
+    <%/task:Debug%>
+    
+    This request should have logged a debug message from this page.
+
+  <%/@include%>
+<%/@namespace%>

@@ -1,0 +1,26 @@
+<%@namespace
+  webuic="class:/spiralcraft/servlet/webui/components/"
+  cw="context:/WEB-INF/webui/"
+  servlet="class:/javax/servlet/http/"
+  lang="class:/spiralcraft/lang/"
+  %> 
+  <%@include resource="context:/WEB-INF/webui/skin.webui"%>
+
+    <%webuic:DataSessionComponent
+      typeX="[@cw:CustomerEditSession].type"
+      %>
+      
+      <%.defaultAssignments%>
+        <%lang:Assignment 
+          source='[servlet:HttpServletRequest].getHeader("User-Agent")' 
+          target="userAgent"
+        /%>
+      <%/.defaultAssignments%>
+    
+      
+      User agent is: <%=[cw:CustomerEditSession].userAgent/%>
+      
+    <%/webuic:DataSessionComponent%>
+
+  <%/@include%>
+<%/@namespace%>

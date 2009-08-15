@@ -32,8 +32,13 @@
         <label labelFor="zip">Zip</label>
         <input type="text" name="zip"/>
         <br/>
+        
         <!-- / Standard form controls go here -->
 
+        <script type="text/javascript"
+          src="http://api.recaptcha.net/challenge?k=000000000000000"/%>"
+          >
+        </script>
 
         
         <%html:SubmitButton 

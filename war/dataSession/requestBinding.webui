@@ -1,0 +1,25 @@
+<%@namespace
+  webuic="class:/spiralcraft/servlet/webui/components/"
+  cw="context:/WEB-INF/webui/"
+  %> 
+  <%@include resource="context:/WEB-INF/webui/skin.webui"%>
+
+    <%webuic:DataSessionComponent
+      typeX="[@cw:CustomerEditSession].type"
+      %>
+      <%.requestBindings%>
+        <%webuic:RequestBinding 
+          name="id" 
+          target="selectedCustomerId"
+        /%>
+      <%/.requestBindings%>
+    
+      <a href="?id=10">Select #10</a><br>
+      <a href="?id=20">Select #20</a><br>
+      
+      Selected customer id: <%=[cw:CustomerEditSession].selectedCustomerId/%>
+      
+    <%/webuic:DataSessionComponent%>
+
+  <%/@include%>
+<%/@namespace%>
