@@ -1,0 +1,11 @@
+<%@namespace
+  html="class:/spiralcraft/servlet/webui/components/html/"
+  webuic="class:/spiralcraft/servlet/webui/components/"
+  %>
+  <%@include resource="context:/WEB-INF/webui/skin.webui"%>
+    <%html:Form tag.idX='"myId"+100'%>
+    
+    <%/html:Form%>
+
+  <%/@include%>    
+<%/@namespace%>
