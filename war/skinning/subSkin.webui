@@ -1,0 +1,10 @@
+<%@include resource="skin.webui"%>
+
+[ This is a more specific skin which wraps the following content: ]
+<!-- specific content -->
+<div>
+  <%@insert/%>
+</div>
+<!-- /specific content -->
+[ This is a more specific skin which wrapped the previous content ]
+<%/@include%>
