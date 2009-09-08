@@ -1,0 +1,53 @@
+<%@namespace
+  webuic="class:/spiralcraft/servlet/webui/components/"
+  task="class:/spiralcraft/task/"
+  servlet="class:/javax/servlet/http/"
+  j="class:/java/lang/"
+  html="class:/spiralcraft/servlet/webui/components/html/"
+  %> 
+  <%@include resource="context:/WEB-INF/webui/skin.webui"%>
+
+    <%With  x="{ value:[@:class:/java/lang/String] }" %>
+    
+      <%html:Form%>
+
+        <%html:TextInput x="value" name="test" debug="false"/%>
+        <input type="submit" value="Unbound submit button"/>
+        <br>Enter text "fire" to fire CONDITIONAL FormCommand
+        <br>Press to run SPECIFIC FormCommands: 
+          <input type="submit" name="command" value="FOO"/>
+          <input type="submit" name="command" value="BAR"/>
+
+        <%task:Debug
+          messageX
+            ='"ALWAYS command fired- value="+....value'
+          %>
+          <%html:FormCommand x="command()"/%>
+        <%/task:Debug%>
+
+        <%task:Debug
+          messageX
+            ='"CONDITIONAL command fired- value="+....value'
+          %>
+          <%html:FormCommand whenX='....value=="fire"' x="command()"/%>
+        <%/task:Debug%>
+    
+        <%task:Debug
+          messageX
+            ='"SPECIFIC command FOO fired- value="+....value'
+          %>
+          <%html:FormCommand name='FOO' x="command()"/%>
+        <%/task:Debug%>
+
+        <%task:Debug
+          messageX
+            ='"SPECIFIC command BAR fired- value="+....value'
+          %>
+          <%html:FormCommand name='BAR' x="command()"/%>
+        <%/task:Debug%>
+      <%/html:Form%>
+    
+    <%/With%>
+
+  <%/@include%>
+<%/@namespace%>

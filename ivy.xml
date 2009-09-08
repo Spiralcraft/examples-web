@@ -4,10 +4,10 @@
   </info>
   <dependencies>
     <dependency org="spiralcraft"  name="launcher"  rev="[0.3.4,)"/>
-    <dependency org="spiralcraft"  name="core"  rev="[0.3.17,)"/>
-    <dependency org="spiralcraft"  name="net"  rev="[0.3.6,)"/>
-    <dependency org="spiralcraft"  name="servlet"  rev="[0.3.17,)"/>
-    <dependency org="spiralcraft"  name="pioneer"  rev="[0.3.5.1,)"/>
+    <dependency org="spiralcraft"  name="core"  rev="[0.3.19,)"/>
+    <dependency org="spiralcraft"  name="net"  rev="[0.3.8,)"/>
+    <dependency org="spiralcraft"  name="servlet"  rev="[0.3.19,)"/>
+    <dependency org="spiralcraft"  name="pioneer"  rev="[0.3.5.2,)"/>
     <dependency org="spiralcraft"  name="textgen"  rev="[0.3.11,)"/>
     <exclude artifact="spiralcraft-textgen-test"/>
   </dependencies>

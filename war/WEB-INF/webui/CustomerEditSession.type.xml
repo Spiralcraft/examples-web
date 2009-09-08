@@ -32,6 +32,14 @@
     </meta:Field>
     
     <meta:Field>
+      <name>selectedCustomerIdList
+      </name>
+      
+      <type><Integer.array.type/>
+      </type>
+    </meta:Field>
+    
+    <meta:Field>
       <name>userAgent
       </name>
       

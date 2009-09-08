@@ -12,7 +12,7 @@
           +": AutoExec command fired"
          '
       %>
-      <%webuic:AutoExec x="command()"/%>
+      <%webuic:AutoExec x=".command()"/%>
     <%/task:Debug%>
     
     This request should have logged a debug message from this page.
