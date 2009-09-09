@@ -1,0 +1,24 @@
+<autofilter:AutoFilter.list
+  xmlns:autofilter="class:/spiralcraft/servlet/autofilter/"
+  xmlns:smtp="class:/spiralcraft/net/smtp/"
+  >
+  <autofilter:ProxyFilter>
+
+    <pattern>local
+    </pattern>
+    
+    <proxyURLParameter>url
+    </proxyURLParameter>
+    
+    <permittedAuthorities>
+      <String>localhost:8080
+      </String>
+    </permittedAuthorities>
+    
+    <debug>true
+    </debug>
+    
+  </autofilter:ProxyFilter>
+  
+</autofilter:AutoFilter.list>
+  

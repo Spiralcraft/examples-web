@@ -6,8 +6,7 @@
   html="class:/spiralcraft/servlet/webui/components/html/"
   %> 
   <%@include resource="context:/WEB-INF/webui/skin.webui"%>
-
-    <%With  x="{ value:[@:class:/java/lang/String] }" %>
+    <%With  x="{ value:[@j:String] }" %>
     
       <%html:Form%>
 
@@ -48,6 +47,6 @@
       <%/html:Form%>
     
     <%/With%>
-
   <%/@include%>
+
 <%/@namespace%>

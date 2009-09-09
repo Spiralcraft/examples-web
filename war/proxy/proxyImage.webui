@@ -1,0 +1,15 @@
+
+  <%@include resource="context:/WEB-INF/webui/skin.webui"%>
+  
+    This is a proxied image from permitted localhost:
+    
+    <img src="/proxy/local?url=http://localhost:8080/images/Spiralcraft-Logo.96x96.gif"/>
+    
+    
+    <br>
+    
+    This is an illegal proxy attempt and should fail
+
+    <img src="/proxy/local?url=http://localhost:80/images/Spiralcraft-Logo.96x96.gif"/>
+
+  <%/@include%>
