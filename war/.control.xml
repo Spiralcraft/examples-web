@@ -1,8 +1,13 @@
-<autofilter:AutoFilter.list
-  xmlns:autofilter="class:/spiralcraft/servlet/autofilter/"
+<af:AutoFilter.list
+  xmlns:af="class:/spiralcraft/servlet/autofilter/"
   xmlns:smtp="class:/spiralcraft/net/smtp/"
+  xmlns:webui="class:/spiralcraft/servlet/webui/"
+  xmlns:http="class:/javax/servlet/http/"
+  xmlns:task="class:/spiralcraft/task/"
+  xmlns:j="class:/java/lang/"
+  xmlns:data="class:/spiralcraft/data/"
   >
-  <autofilter:ReferenceFocusFilter>
+  <af:ReferenceFocusFilter>
 
     <instanceURI>context://config/Space.xml
     </instanceURI>
@@ -10,13 +15,54 @@
     <scope>CONSTANT
     </scope>
     
-  </autofilter:ReferenceFocusFilter>
+  </af:ReferenceFocusFilter>
   
-  <autofilter:ReferenceFocusFilter>
+  <af:ReferenceFocusFilter>
         
     <instanceURI>context://config/SMTPConnector.xml
     </instanceURI>
         
-  </autofilter:ReferenceFocusFilter>   
-</autofilter:AutoFilter.list>
+  </af:ReferenceFocusFilter>   
+
+  <af:CommandFilter>    
+    <debug>true
+    </debug>
+    
+    <whenX>
+      [http:HttpServletRequest]
+      { 
+        .servletPath=="/data"
+        &amp;&amp; .pathInfo=="/snapshot"
+      }
+    </whenX>
+    
+    <x>
+      [*task:Eval
+        {`{transactionId:[@j:Long]}`
+        ,`[data:Space].getStore("local").snapshot(transactionId)`
+        }
+      ].command()
+    </x>
+       
+       
+    <queryBindings>
+      <af:ParameterBinding>
+        <name>transactionId
+        </name>
+        <target>transactionId
+        </target>
+      </af:ParameterBinding>
+    </queryBindings>
+    
+    <renderer>
+      <sax:XmlDataRenderer xmlns:sax="class:/spiralcraft/data/sax/">
+        <x>result.@log(.)
+        </x>
+      </sax:XmlDataRenderer>
+    </renderer>
+  </af:CommandFilter>   
+
+
+
+</af:AutoFilter.list>
   

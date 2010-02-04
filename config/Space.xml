@@ -7,6 +7,9 @@
   >
   <stores>
     <data-xml:XmlStore>
+      <name>local
+      </name>
+      
       <baseResourceURI>context://data/
       </baseResourceURI>
       

@@ -1,0 +1,7 @@
+<%@include resource="skin.webui"%>
+
+<pre>
+<%=.@focus.focusChain/%>
+</pre>
+
+<%/@include%>

@@ -6,6 +6,9 @@
   <maxSessionInactiveInterval>7200
   </maxSessionInactiveInterval>
       
+  <debug>true
+  </debug>
+  
   <filterMappings>
     <httpd:FilterMapping>
       <filterName>controller
@@ -43,6 +46,8 @@
       <URLPattern>/
       </URLPattern>
         
+      <URLPattern>/data/*
+      </URLPattern>
     </httpd:ServletMapping>
 
     <httpd:ServletMapping>
@@ -50,8 +55,8 @@
       <servletName>webui
       </servletName>
         
-      <URLPattern>*.webui
-      </URLPattern>
+      <URLPatterns>*.webui
+      </URLPatterns>
         
     </httpd:ServletMapping>
 
