@@ -43,11 +43,11 @@
       <servletName>file
       </servletName>
         
-      <URLPattern>/
-      </URLPattern>
+      <URLPatterns>/
+      </URLPatterns>
         
-      <URLPattern>/data/*
-      </URLPattern>
+      <URLPatterns>/data/*
+      </URLPatterns>
     </httpd:ServletMapping>
 
     <httpd:ServletMapping>
