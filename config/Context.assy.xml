@@ -6,7 +6,7 @@
   <maxSessionInactiveInterval>7200
   </maxSessionInactiveInterval>
       
-  <debug>true
+  <debug>false
   </debug>
   
   <filterMappings>

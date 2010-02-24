@@ -54,6 +54,14 @@
       <type><Long.type/>
       </type>
     </meta:Field>
+
+    <meta:Field>
+      <name>searchTerms
+      </name>
+      
+      <type><String.type/>
+      </type>
+    </meta:Field>
     
   </fields>
 </meta:Type>
