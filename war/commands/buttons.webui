@@ -29,6 +29,13 @@
           <%html:SubmitButton x="command()" label="Submit"/%>
         <%/task:Debug%>
 
+        <%task:Debug
+          messageX
+            ='"Empty Button  pressed"'
+          %>
+          <%html:Button x="command()" .tag.clazz="somecss" type="submit" /%>
+        <%/task:Debug%>
+
       <%/html:Form%>
     <%/webuic:DataSessionComponent%>
   <%/@include%>
