@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<example:Customer.list xmlns:example="class:/spiralcraft/data/test/example/">
+  <example:Customer>
+    <displayName>1</displayName>
+    <id>100</id>
+  </example:Customer>
+  <example:Customer>
+    <displayName>2</displayName>
+    <id>101</id>
+  </example:Customer>
+  <example:Customer>
+    <displayName>3</displayName>
+    <id>102</id>
+  </example:Customer>
+</example:Customer.list>
