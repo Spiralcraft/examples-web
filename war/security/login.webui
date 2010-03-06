@@ -1,0 +1,142 @@
+<%@namespace
+  html="class:/spiralcraft/servlet/webui/components/html/" 
+  secauth="class:/spiralcraft/security/auth/"
+  sec="class:/spiralcraft/security/"
+  webuic="class:/spiralcraft/servlet/webui/components/"
+  ju="class:/java/util/"
+  lang="class:/spiralcraft/lang/"
+  util="class:/spiralcraft/util/"
+  sutil="class:/spiralcraft/util/string/"
+  %>
+  <%@include resource="context:/WEB-INF/webui/skin.webui"%>
+  
+    <script type="text/javascript" src="/.js/security/sha256.js">
+    </script>
+    
+    <script type="text/javascript">
+      function validateLogin(form) {
+        var clearcreds=
+          decode_utf8(
+            "<%=[secauth:AuthSession].realmName/%>"+
+            form.login_username.value.toLowerCase()+
+            form.login_clearpass.value
+          );
+        form.login_digestpass.value=SHA256(clearcreds);
+        console.log(clearcreds+" -- "+form.login_digestpass.value);
+        form.login_clearpass.value="";
+        console.log(form.login_clearpass.value);
+        return true;
+      }
+      
+    
+    </script>
+    
+    <%html:Form .tag.onsubmit="return validateLogin(this)"%>
+    
+      <%html:Login%> 
+        <div>
+          <div>
+            <span>Username: 
+              <%html:TextInput 
+                  x="username"
+                  name="login_username" 
+                  contextualizeName="false" 
+               /%>
+            </span>
+          </div>
+          <div>
+            <span>Password: 
+              <%html:TextInput 
+                x="passwordCleartext" 
+                name="login_clearpass"
+                contextualizeName="false"
+                password="true"
+                debug="true"
+              /%>
+            </span>
+            <%html:HiddenInput 
+              x="saltedDigest" 
+              name="login_digestpass"
+              password="true"
+              contextualizeName="false"
+              %>
+            <%/html:HiddenInput%>
+          </div>
+          <div>
+            <span>
+              <%html:SubmitButton 
+                x="[html:Login].loginCommand()" 
+                label="login" 
+              /%>
+            </span>
+          </div>
+        </div>
+            
+      <%/html:Login%>
+    <%/html:Form%>
+  
+  
+    <%webuic:DataSession%>
+  
+      <%html:Form%>
+    
+        <%html:Login%> 
+        
+          <%html:TupleEditor
+            typeX='[@sec:Login].type'
+            %>
+            
+            <%.initialAssignments%>
+              <!-- Make up a password. -->
+              <%lang:Assignment
+                source='.clearpass=[@util:RandomUtil].@generateString(10)'
+              /%>
+            <%/.initialAssignments%>
+  
+            <%.preSaveAssignments%>
+              <%lang:Assignment
+                source="[secauth:LoginEntry].username=.username"
+              /%>
+              <%lang:Assignment
+                source="[secauth:LoginEntry].saltedDigest=.digestpass"
+              /%>
+            <%/.preSaveAssignments%>
+                      
+            
+  
+            
+            <div>
+              <div>
+                <span>Username: <%html:TextInput x="username"/%>
+                </span>
+              </div>
+              <div>
+                <span>Password: 
+                  <%html:TextInput 
+                    x="clearpass" 
+                    password="true"
+                    .tag.id="password"
+                  /%>
+                </span>
+                <%html:HiddenInput x="digestpass"%>
+                
+                <%/html:HiddenInput%>
+              </div>
+              <div>
+                <span>
+                  <%html:SubmitButton 
+                    x="[html:TupleEditor].saveCommand([html:Login].loginCommand())" 
+                    label="Register"
+                  /%>
+                </span>
+              </div>
+            </div>
+          
+          <%/html:TupleEditor%>
+        <%/html:Login%>
+      <%/html:Form%>
+    
+    <%/webuic:DataSession%>
+
+  <%/@include%>
+<%/@namespace%>

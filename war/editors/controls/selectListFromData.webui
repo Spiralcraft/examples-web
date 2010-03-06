@@ -25,6 +25,7 @@
 
 
       <%html:SubmitButton
+        x="null"
         label="submit"
       /%>  
         

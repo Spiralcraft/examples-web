@@ -1,0 +1,37 @@
+<autofilter:AutoFilter.list
+  xmlns:autofilter="class:/spiralcraft/servlet/autofilter/"
+  xmlns:fb="class:/spiralcraft/facebook/"
+  xmlns:fbmeta="class:/spiralcraft/facebook/meta/"
+  xmlns:sec="class:/spiralcraft/security/"
+  xmlns:secauth="class:/spiralcraft/security/auth/"
+  xmlns:secspi="class:/spiralcraft/security/spi/"
+  xmlns:query="class:/spiralcraft/data/query/"
+  >
+
+  <autofilter:SecurityFilter>
+    <debug>true
+    </debug>
+    
+    <preAuthenticate>true
+    </preAuthenticate>
+    
+    <authenticator>
+      <secauth:Authenticator>
+        <debug>true
+        </debug>
+        
+        <authModules>
+          
+          <!-- Standard Login -->
+          <secspi:PasswordDataAuthModule>
+            <debug>true
+            </debug>
+          </secspi:PasswordDataAuthModule>
+        </authModules>
+      
+      </secauth:Authenticator>
+    </authenticator>
+  </autofilter:SecurityFilter>
+  
+</autofilter:AutoFilter.list>
+  

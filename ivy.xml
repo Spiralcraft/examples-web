@@ -4,9 +4,9 @@
   </info>
   <dependencies>
     <dependency org="spiralcraft"  name="launcher"  rev="[0.4.5,)"/>
-    <dependency org="spiralcraft"  name="core"  rev="[0.4.5,)"/>
+    <dependency org="spiralcraft"  name="core"  rev="[0.4.6,)"/>
     <dependency org="spiralcraft"  name="net"  rev="[0.4.4,)"/>
-    <dependency org="spiralcraft"  name="servlet"  rev="[0.4.5,)"/>
+    <dependency org="spiralcraft"  name="servlet"  rev="[0.4.6,)"/>
     <dependency org="spiralcraft"  name="pioneer"  rev="[0.4.4.1,)"/>
     <dependency org="spiralcraft"  name="textgen"  rev="[0.4.4,)"/>
     <dependency org="spiralcraft"  name="biz"  rev="[0.1,)"/>
