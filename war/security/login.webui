@@ -13,25 +13,27 @@
     <script type="text/javascript" src="/.js/security/sha256.js">
     </script>
     
-    <script type="text/javascript">
-      function validateLogin(form) {
-        var clearcreds=
-          decode_utf8(
-            "<%=[secauth:AuthSession].realmName/%>"+
-            form.login_username.value.toLowerCase()+
-            form.login_clearpass.value
-          );
-        form.login_digestpass.value=SHA256(clearcreds);
-        console.log(clearcreds+" -- "+form.login_digestpass.value);
-        form.login_clearpass.value="";
-        console.log(form.login_clearpass.value);
-        return true;
-      }
-      
-    
-    </script>
+
     
     <%html:Form .tag.onsubmit="return validateLogin(this)"%>
+    
+      <script type="text/javascript">
+        function validateLogin(form) {
+          var clearcreds=
+            decode_utf8(
+              "<%=[secauth:AuthSession].realmName/%>"+
+              form.login_username.value.toLowerCase()+
+              form.login_clearpass.value
+            );
+          form.login_digestpass.value=SHA256(clearcreds);
+          console.log(clearcreds+" -- "+form.login_digestpass.value);
+          form.login_clearpass.value="";
+          console.log(form.login_clearpass.value);
+          return true;
+        }
+      
+    
+      </script>
     
       <%html:Login%> 
         <div>
