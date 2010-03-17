@@ -15,6 +15,9 @@
     <preAuthenticate>true
     </preAuthenticate>
     
+    <minutesToPersist>10
+    </minutesToPersist>
+    
     <authenticator>
       <secauth:Authenticator>
         <debug>true

@@ -65,6 +65,13 @@
             <%/html:HiddenInput%>
           </div>
           <div>
+            <span>Persistent:
+              <%html:CheckboxInput
+                x="persistent" 
+              /%>
+            </span>
+          </div>
+          <div>
             <span>
               <%html:SubmitButton 
                 x="[html:Login].loginCommand()" 
