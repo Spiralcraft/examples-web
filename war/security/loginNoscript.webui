@@ -15,7 +15,7 @@
     
 
     
-    <%html:Form .tag.onsubmit="return validateLogin(this)"%>
+    <%html:Form%>
     
       <%html:Login%> 
         <div>

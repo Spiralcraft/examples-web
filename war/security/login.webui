@@ -7,33 +7,42 @@
   lang="class:/spiralcraft/lang/"
   util="class:/spiralcraft/util/"
   sutil="class:/spiralcraft/util/string/"
+  codec="class:/spiralcraft/codec/text/"
   %>
   <%@include resource="context:/WEB-INF/webui/skin.webui"%>
   
     <script type="text/javascript" src="/.js/security/sha256.js">
     </script>
     
-
-    
-    <%html:Form .tag.onsubmit="return validateLogin(this)"%>
-    
-      <script type="text/javascript">
-        function validateLogin(form) {
-          var clearcreds=
-            decode_utf8(
-              "<%=[secauth:AuthSession].realmName/%>"+
-              form.login_username.value.toLowerCase()+
-              form.login_clearpass.value
-            );
-          form.login_digestpass.value=SHA256(clearcreds);
-          console.log(clearcreds+" -- "+form.login_digestpass.value);
-          form.login_clearpass.value="";
-          console.log(form.login_clearpass.value);
-          return true;
-        }
+    <script type="text/javascript">
+      function validateLogin(username,clearpass_input,digestpass_input) {
+        var clearcreds=
+          decode_utf8(
+            "<%=[secauth:AuthSession].realmName/%>"+
+            username.toLowerCase()+
+            clearpass_input.value
+          );
+        digestpass_input.value=SHA256(clearcreds);
+        console.log(clearcreds+" -- "+digestpass_input.value);
+        clearpass_input.value="";
+        console.log(clearpass_input.value);
+        return true;
+      }
       
     
-      </script>
+    </script>
+    
+    <%html:Form 
+      .tag.onsubmit
+        ="return validateLogin(
+            this.login_username.value,
+            this.login_clearpass,
+            this.login_digestpass
+            )
+        "
+      %>
+    
+
     
       <%html:Login%> 
         <div>
@@ -87,7 +96,15 @@
   
     <%webuic:DataSession%>
   
-      <%html:Form%>
+      <%html:Form
+        .tag.onsubmit
+          ="return validateLogin(
+              this.login_username.value,
+              this.login_clearpass,
+              this.login_digestpass
+              )
+          "
+        %>
     
         <%html:Login%> 
         
@@ -107,7 +124,7 @@
                 source="[secauth:LoginEntry].username=.username"
               /%>
               <%lang:Assignment
-                source="[secauth:LoginEntry].saltedDigest=.digestpass"
+                source="[secauth:LoginEntry].saltedDigest=[@codec:HexCodec].@decodeHex(digestpass)"
               /%>
             <%/.preSaveAssignments%>
                       
@@ -116,20 +133,30 @@
             
             <div>
               <div>
-                <span>Username: <%html:TextInput x="username"/%>
+                <span>Username: 
+                  <%html:TextInput 
+                    x="username"
+                    name="login_username"
+                    contextualizeName="false"
+                  /%>
                 </span>
               </div>
               <div>
                 <span>Password: 
                   <%html:TextInput 
                     x="clearpass" 
+                    name="login_clearpass"
+                    contextualizeName="false"
                     password="true"
                     .tag.id="password"
                   /%>
                 </span>
-                <%html:HiddenInput x="digestpass"%>
-                
-                <%/html:HiddenInput%>
+                <%html:HiddenInput 
+                  x="digestpass"
+                  name="login_digestpass"
+                  password="true"
+                  contextualizeName="false"
+                /%>
               </div>
               <div>
                 <span>
