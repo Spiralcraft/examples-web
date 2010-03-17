@@ -44,7 +44,7 @@
     
 
     
-      <%html:Login%> 
+      <%html:Login debug="false"%> 
         <div>
           <div>
             <span>Username: 
@@ -62,7 +62,7 @@
                 name="login_clearpass"
                 contextualizeName="false"
                 password="true"
-                debug="true"
+                debug="false"
               /%>
             </span>
             <%html:HiddenInput 
