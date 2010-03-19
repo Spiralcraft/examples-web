@@ -1,0 +1,49 @@
+<autofilter:AutoFilter.list
+  xmlns:autofilter="class:/spiralcraft/servlet/autofilter/"
+  >
+
+  <autofilter:AuthenticateFilter
+    xmlns:autofilter="class:/spiralcraft/servlet/autofilter/"
+    >
+                                
+    <authenticator>
+      <secauth:Authenticator
+        xmlns:secauth="class:/spiralcraft/security/auth/"
+        xmlns:security="class:/spiralcraft/security/"
+        xmlns:secspi="class:/spiralcraft/security/spi/"
+        >
+                
+                        
+        <realmName>example.com
+        </realmName>
+        
+        <authModules>
+          <secspi:PasswordDataAuthModule>
+            <source>
+                        
+              <dataxml:XmlQueryable
+                xmlns:dataxml="class:/spiralcraft/data/xml"
+                >
+                <resourceURI>context://config/Login.data.xml
+                </resourceURI>
+                                        
+                <resultType><security:Login.type/>
+                </resultType>
+                                                
+              </dataxml:XmlQueryable>
+                        
+            </source>
+          
+          
+          </secspi:PasswordDataAuthModule>
+        
+        </authModules>
+      </secauth:Authenticator>
+    </authenticator>
+        
+  </autofilter:AuthenticateFilter>
+
+                                
+</autofilter:AutoFilter.list>
+
+
