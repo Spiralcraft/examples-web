@@ -1,0 +1,49 @@
+<af:CommandFilter
+  xmlns:af="class:/spiralcraft/servlet/autofilter/"
+  xmlns:http="class:/javax/servlet/http/"
+  xmlns:task="class:/spiralcraft/task/"
+  xmlns:j="class:/java/lang/"
+  xmlns:jnet="class:/java/net/"
+  xmlns:data="class:/spiralcraft/data/"
+  xmlns:dtask="class:/spiralcraft/data/task/"
+  xmlns:vfsc="class:/spiralcraft/vfs/context/"
+  xmlns:vfsm="class:/spiralcraft/vfs/meta/"
+  >    
+  <debug>true
+  </debug>
+    
+  <whenX>
+    [http:HttpServletRequest]
+    { 
+      .servletPath=="/files/.snapshot"
+    }
+  </whenX>
+    
+  <x>
+    [*task:Eval
+      {`{lastModified:[@j:Long]}`
+      ,`
+        [vfsc:FileSpace].getGraft("","uploads/").resolve([@jnet:URI].@create(""))
+        .[*vfsm:TreeSnapshot].(excludes:=[@j:String][{".svn","CVS"}])
+        [.container || .lastModified>lastModified]
+      `}
+    ].command()
+  </x>
+        
+       
+  <queryBindings>
+    <af:ParameterBinding>
+      <name>lastModified
+      </name>
+      <target>lastModified
+      </target>
+    </af:ParameterBinding>
+  </queryBindings>
+    
+  <renderer>
+    <sax:XmlDataRenderer xmlns:sax="class:/spiralcraft/data/sax/">
+      <x>result.[*dtask:Externalize]
+      </x>
+    </sax:XmlDataRenderer>
+  </renderer>
+</af:CommandFilter>   

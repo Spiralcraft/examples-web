@@ -30,6 +30,8 @@
           </dataURI>
           <configURI>../config/
           </configURI>
+          <filesURI>../files/
+          </filesURI>
         </autofilter:Controller>
       </filterInstance>
       
@@ -69,8 +71,17 @@
       <servletName>file
       </servletName>
          
-      <servletClass>spiralcraft.pioneer.httpd.FileServlet
+      <servletClass>spiralcraft.servlet.vfs.FileServlet
       </servletClass>
+      
+      <initParameters>
+        <httpd:InitParameter>
+          <name>debugLevel
+          </name>
+          <value>INFO
+          </value>
+        </httpd:InitParameter>
+      </initParameters>
                            
     </httpd:ServletHolder>
                         

@@ -2,7 +2,7 @@
 
 [ This is a more specific skin which wraps the following content: ]
 <!-- specific content -->
-<div>
+<div style="border:2px solid;padding:5px;margin:5px">
   <%@insert/%>
 </div>
 <!-- /specific content -->

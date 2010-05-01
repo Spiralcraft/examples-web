@@ -1,0 +1,43 @@
+<af:CommandFilter
+  xmlns:af="class:/spiralcraft/servlet/autofilter/"
+  xmlns:http="class:/javax/servlet/http/"
+  xmlns:task="class:/spiralcraft/task/"
+  xmlns:j="class:/java/lang/"
+  xmlns:data="class:/spiralcraft/data/"
+  >    
+  <debug>true
+  </debug>
+    
+  <whenX>
+    [http:HttpServletRequest]
+    { 
+      .servletPath=="/data"
+      &amp;&amp; .pathInfo=="/snapshot"
+    }
+  </whenX>
+    
+  <x>
+    [*task:Eval
+      {`{transactionId:[@j:Long]}`
+      ,`[data:Space].getStore("local").snapshot(transactionId)`
+      }
+    ].command()
+  </x>
+       
+       
+  <queryBindings>
+    <af:ParameterBinding>
+      <name>transactionId
+      </name>
+      <target>transactionId
+      </target>
+    </af:ParameterBinding>
+  </queryBindings>
+    
+  <renderer>
+    <sax:XmlDataRenderer xmlns:sax="class:/spiralcraft/data/sax/">
+      <x>result.@log(.)
+      </x>
+    </sax:XmlDataRenderer>
+  </renderer>
+</af:CommandFilter>   

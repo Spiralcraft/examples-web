@@ -1,0 +1,30 @@
+<%@namespace
+  webuic="class:/spiralcraft/servlet/webui/components/"
+  html="class:/spiralcraft/servlet/webui/components/html/"
+  cw="context:/WEB-INF/webui/"
+  jnet="class:/java/net/"
+  %> 
+   
+  <%webuic:DataSessionComponent
+    typeX="[@cw:CustomerEditSession].type"
+    %>
+    <%html:Form%>
+    
+    
+    
+      <%html:FileInput
+        x="null"
+        rootUriX='[@jnet:URI].(null,"context:/uploads/",null)'
+      /%>
+
+
+      <%html:SubmitButton
+        x="null"
+        label="upload"
+      /%>  
+        
+    <%/html:Form%>
+  
+  <%/webuic:DataSessionComponent%>
+  
+<%/@namespace%>

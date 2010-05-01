@@ -2,7 +2,7 @@
   <head>
   </head>
   <body>
-  
+    <div style="border:1px solid;padding:5px;">
     <!-- skin main insert -->
     
     
@@ -10,6 +10,7 @@
     
     
     <!-- / skin main insert -->
+    </div>
     
     
   </body>
