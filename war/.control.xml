@@ -6,7 +6,15 @@
   >
 
     
-  <config:VfsFilter/>
+  <af:ReferenceFocusFilter>
+
+    <typeURI>context://config/FileSpace
+    </typeURI>
+                
+    <scope>CONSTANT
+    </scope>
+    
+  </af:ReferenceFocusFilter>
 
   <config:FilesPublishFilter/>
   
