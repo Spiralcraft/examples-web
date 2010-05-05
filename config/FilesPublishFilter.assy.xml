@@ -42,7 +42,7 @@
     
   <renderer>
     <sax:XmlDataRenderer xmlns:sax="class:/spiralcraft/data/sax/">
-      <x>result.[*dtask:Externalize]
+      <x>[@vfsm:Entry.list].(result.[*dtask:Externalize])
       </x>
     </sax:XmlDataRenderer>
   </renderer>
