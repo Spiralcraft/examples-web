@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<task:TaskScheduler
+  xmlns:task="class:/spiralcraft/task/"
+  xmlns:time="class:/spiralcraft/time"
+  >
+
+  <debug>false
+  </debug>
+  
+  <recurrent>
+    <time:Schedule>
+      <recurrenceRules>
+        <time:RecurrenceRule>
+          <frequency>SECONDLY
+          </frequency>
+          <interval>10
+          </interval>
+        </time:RecurrenceRule>
+      </recurrenceRules>
+    </time:Schedule>
+  </recurrent>
+  
+  <scenario>
+    <task:Eval>
+      <x>@log("Hello!")
+      </x>
+    </task:Eval>
+  </scenario>
+</task:TaskScheduler>

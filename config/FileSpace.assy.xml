@@ -4,8 +4,6 @@
   <authorities>      
   
     <vfsc:Authority>
-      <authorityName>
-      </authorityName>
      
       <debugLevel>FINE
       </debugLevel>

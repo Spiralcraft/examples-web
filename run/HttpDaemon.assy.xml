@@ -39,7 +39,8 @@
             </httpd:RotatingFileAccessLog>
           </accessLog>
           
-          
+          <debug>false
+          </debug>
 
         </config:Context>
         

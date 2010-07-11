@@ -36,8 +36,13 @@
   </af:ReferenceFocusFilter>   
   
   <config:DataSnapshotFilter/>
-
- 
-
+  
+  <af:ReferenceFocusFilter>
+        
+    <instanceURI>context://config/MonitorScheduler.xml
+    </instanceURI>
+        
+  </af:ReferenceFocusFilter>   
+  
 </af:AutoFilter.list>
   

@@ -14,7 +14,8 @@
     
       <%html:FileInput
         x="null"
-        rootUriX='[@jnet:URI].(null,"context:/uploads/",null)'
+        contextRelativeRoot='context:/uploads/'
+        debug="true"
       /%>
 
 
