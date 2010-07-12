@@ -1,0 +1,52 @@
+<%@namespace
+  html="class:/spiralcraft/servlet/webui/components/html/"
+  webui="class:/spiralcraft/servlet/webui/"
+  appui="context:/WEB-INF/webui/"
+  smtp="class:/spiralcraft/net/smtp/"
+  tg="class:/spiralcraft/textgen/"
+  jnet="class:/java/net/"
+  %>
+  <%@include resource=":appui:skin.webui"%>
+    <%html:Form%>
+  
+
+
+
+        <!-- Standard form controls go here -->
+        
+        <label labelFor="name">Name</label>
+        <input type="text" name="name"/>
+        <br/>
+
+        <label labelFor="street">Street</label>
+        <input type="text" name="street"/>
+        <br/>
+
+        <label labelFor="city">City</label>
+        <input type="text" name="city"/>
+
+        <label labelFor="state">St</label>
+        <input type="text" name="state"/>
+
+        <label labelFor="zip">Zip</label>
+        <input type="text" name="zip"/>
+        <br/>
+        <!-- / Standard form controls go here -->
+
+
+        
+
+        
+        <%html:SubmitButton 
+          name="submit" 
+          x='[*appui:FormMailer].command()'
+          onSuccess='[webui:ServiceContext].redirect([*jnet:URI{"formPostThankYou.webui"}])'
+          label="Submit"
+        /%>
+        
+
+        
+        
+    <%/html:Form%>
+  <%/@include%>    
+<%/@namespace%>

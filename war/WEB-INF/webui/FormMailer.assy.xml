@@ -1,0 +1,21 @@
+<smtp:SendMail
+  xmlns:smtp="class:/spiralcraft/net/smtp/"
+  >
+  <messageX>
+    [*tg:Render
+      {templateURI
+        :=[*jnet:URI
+            {"context:/WEB-INF/webui/simpleFormEmail.tgl"
+            }
+          ]
+      }
+    ]  
+  </messageX>
+  
+  <senderX>"mike.toth@spiralcraft.com"
+  </senderX>
+  
+  <recipientX>"mike.toth@spiralcraft.com"
+  </recipientX>
+
+</smtp:SendMail>          
