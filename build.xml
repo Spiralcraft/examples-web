@@ -1,5 +1,8 @@
 <project name="spiralcraft-examples-web" default="retrieve" basedir=".">
   
+  <property name="data.clean.dir" location="data/clean/"/>
+  <property name="data.live.dir" location="data/live/"/>
+    
   <import file="../../build/build-spiralcraft-common.xml"/>
   
   <target name="retrieve" depends="build-ivy.retrieve">

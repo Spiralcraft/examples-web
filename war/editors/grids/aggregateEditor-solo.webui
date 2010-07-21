@@ -27,7 +27,7 @@
           <%html:SubmitButton
             x="[html:AggregateEditor].saveCommand()"
             label="submit"
-          /%>
+          /%>  
 
         <%/html:AggregateEditor%>
     <%/html:Form%>
