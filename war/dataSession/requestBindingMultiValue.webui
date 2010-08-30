@@ -16,7 +16,7 @@
         /%>
       <%/.requestBindings%>
     
-      <a href="?id=10,15,20">Select #10,#15,#20</a><br>
+      <a href="?id=10&amp;id=15&amp;id=20">Select #10,#15,#20</a><br>
       <a href="?id=25">Select #25</a><br>
       
       <%Iterate x="[cw:CustomerEditSession].selectedCustomerIdList"%>

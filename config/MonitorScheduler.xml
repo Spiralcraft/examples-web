@@ -5,21 +5,25 @@
   xmlns:time="class:/spiralcraft/time"
   >
 
-  <debug>false
-  </debug>
-  
   <recurrent>
     <time:Schedule>
       <recurrenceRules>
         <time:RecurrenceRule>
-          <frequency>SECONDLY
+          <frequency>MINUTELY
           </frequency>
-          <interval>10
+          <interval>1
           </interval>
         </time:RecurrenceRule>
       </recurrenceRules>
+
+      <basis>2010-07-27 00:00:30.0 PDT
+      </basis>      
+      
     </time:Schedule>
   </recurrent>
+  
+  <debug>false
+  </debug>
   
   <scenario>
     <task:Eval>

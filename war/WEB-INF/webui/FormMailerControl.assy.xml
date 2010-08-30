@@ -1,20 +1,12 @@
-<smtp:SendMail
+<webuic:SMTP
+  xmlns:webuic="class:/spiralcraft/servlet/webui/components/"
   xmlns:smtp="class:/spiralcraft/net/smtp/"
-  xmlns:tg="class:/spiralcraft/textgen/"
-  xmlns:jnet="class:/java/net/"
-  xmlns:ju="class:/java/util/"
   xmlns:http="class:/javax/servlet/http/"
+  xmlns:ju="class:/java/util/"
   >
-  <messageX>
-    [*tg:Render
-      {templateURI
-        :=[*jnet:URI
-            {"context:/WEB-INF/webui/simpleFormEmail.tgl"
-            }
-          ]
-      }
-    ]  
-  </messageX>
+  
+  <templateURI>context:/WEB-INF/webui/simpleFormEmail.tgl
+  </templateURI>
   
   <senderX>"test@example.com"
   </senderX>
@@ -22,10 +14,8 @@
   <recipientX>"test@example.com"
   </recipientX>
 
-
   <headerBindings>Date=[@ju:Date].()
   </headerBindings>
-
   
   <headerBindings>
     From="&lt;formPost@"+[http:HttpServletRequest].getHeader("host")+"&gt;"
@@ -35,6 +25,7 @@
   </headerBindings>
 
   <headerBindings>Subject="Form mailer"
-  </headerBindings>
-
-</smtp:SendMail>          
+  </headerBindings>  
+  
+</webuic:SMTP>
+ 

@@ -1,8 +1,6 @@
-Date: <%DateFormat format="EEE, dd MMM yyyy HH:mm:ss ZZZZ"/%>
-To: <mike.toth@spiralcraft.com>
-Subject: FormPost
-From: <formPost@<%=[:class:/javax/servlet/http/HttpServletRequest].getHeader("host")/%>>
-
-<%Iterate x="[:class:/spiralcraft/servlet/webui/ServiceContext].post.entrySet()"%>
+<%Iterate 
+  tgns:webui="class:/spiralcraft/servlet/webui"
+  x="[webui:ServiceContext].post.entrySet()"
+  %>
   <%=./%>
 <%/Iterate%>

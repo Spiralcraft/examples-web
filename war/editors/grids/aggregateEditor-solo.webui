@@ -9,7 +9,7 @@
     %>
     <%html:Form%>
         <%html:AggregateEditor x="allCustomers"%>
-          <%Iterate"%>
+          <%Iterate%>
             <%Group x="true"%>
               <%GroupHeader%>
                 <table>

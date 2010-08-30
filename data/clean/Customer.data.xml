@@ -3,14 +3,14 @@
 <example:Customer.list xmlns:example="class:/spiralcraft/data/test/example/">
   <example:Customer>
     <displayName>1</displayName>
-    <id>100</id>
+    <id>90</id>
   </example:Customer>
   <example:Customer>
     <displayName>2</displayName>
-    <id>101</id>
+    <id>91</id>
   </example:Customer>
   <example:Customer>
     <displayName>3</displayName>
-    <id>102</id>
+    <id>92</id>
   </example:Customer>
 </example:Customer.list>

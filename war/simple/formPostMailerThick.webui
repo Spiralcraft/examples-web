@@ -4,14 +4,12 @@
   smtp="class:/spiralcraft/net/smtp/"
   tg="class:/spiralcraft/textgen/"
   jnet="class:/java/net/"
+  appui="context:/WEB-INF/webui/"
   %>
   <%@include resource="context:/WEB-INF/webui/skin.webui"%>
     <%html:Form%>
   
-      <%webuic:SMTP 
-        templateURI="context:/WEB-INF/webui/simpleFormEmail.tgl"
-        senderX='"mike.toth@spiralcraft.com"'
-        recipientX='"mike.toth@spiralcraft.com"'        
+      <%appui:FormMailerControl        
         debug="false"
         %>
 
@@ -41,7 +39,7 @@
         
         <%html:SubmitButton 
           name="submit" 
-          x='[webuic:SMTP].sendCommand
+          x='[appui:FormMailerControl].sendCommand
                ([html:Form].redirectCommand("formPostThankYou.webui"))
             '
           label="Submit"
@@ -49,7 +47,7 @@
         
         
         <!-- SMTP errors --> 
-        <%With x="[webuic:SMTP].getState().getErrors()"%>
+        <%With x="[appui:FormMailerControl].getState().getErrors()"%>
           <%If x=".!=null"%>
             <div class="error">
               <%Iterate%>
@@ -60,7 +58,7 @@
         <%/With%>
         
         
-      <%/webuic:SMTP%>
+      <%/appui:FormMailerControl%>
     <%/html:Form%>
   <%/@include%>    
 <%/@namespace%>

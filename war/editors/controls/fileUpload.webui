@@ -5,27 +5,94 @@
   jnet="class:/java/net/"
   %> 
    
-  <%webuic:DataSessionComponent
-    typeX="[@cw:CustomerEditSession].type"
-    %>
+  <%@include resource="context:/skinning/skin.webui"%>
+  
+  <%With x="{ file:[@jnet:URI] }" holdWhileX="true"%>
+    <%$uploader imports="caption,assistText,dir"%>
+      <div style="margin:20px">
+      <%field%>
+        <%$caption%><%caption/%><%/$caption%>
+        <%$assistText%><%assistText/%><%/$assistText%>
+        <%@insert/%>
+        <%$actions%>
+          <%html:SubmitButton
+            x="null"
+            label="upload"
+          /%>
+        <%/$actions%>
+        <p>Last upload: <a href="<%dir/%>/<%=file/%>"><%dir/%>/<%=file/%></a>
+        </p>
+        
+      <%/field%>
+      
+      </div>
+      
+    <%/$uploader%>
+  
     <%html:Form%>
-    
-    
-    
-      <%html:FileInput
-        x="null"
-        contextRelativeRoot='context:/uploads/'
-        debug="true"
-      /%>
 
+      <%formHeader%>File upload
+      <%/formHeader%>
+      
 
-      <%html:SubmitButton
-        x="null"
-        label="upload"
-      /%>  
+    
+      <%uploader%>
+        <%$caption%>Default behavior
+        <%/$caption%>
+        
+        <%$assistText%>Uploads to the context root, if it is writable. This
+          is not secure.
+        <%/$assistText%>
+        
+        <%html:FileInput
+          x="file"
+        /%>
+      <%/uploader%>
+      
+      <%uploader%>
+        <%$caption%>Upload to dir
+        <%/$caption%>
+
+        <%$assistText%>This will upload to a dynamic subdirectory of a fixed
+          root directory context:/uploads, which is mapped to a directory 
+          outside the war root- usually <code>files/uploads</code>. Directories
+          will be automatically created if they do not exist.
+        <%/$assistText%>
+        
+        <%$dir%>/uploads<%/$dir%>
+        
+        <%html:FileInput
+          x="file"
+          contextRelativeRoot='context:/uploads/'
+          dirUriX='[@jnet:URI].("testDir1/testDir2")'
+          createDirs="true"
+        /%>
+      <%/uploader%>
+
+      <%uploader%>
+        <%$caption%>Upload to dir
+        <%/$caption%>
+
+        <%$assistText%>This will attempt to upload to a dynamic subdirectory 
+          of a fixed root directory context:/uploads, which doesn't exist.
+          This will fail because createDirs="false"
+        <%/$assistText%>
+        
+        <%$dir%>/uploads<%/$dir%>
+        
+        <%html:FileInput
+          x="file"
+          contextRelativeRoot='context:/uploads/'
+          dirUriX='[@jnet:URI].("testDir1/missing")'
+          createDirs="false"
+        /%>
+      <%/uploader%>
+
         
     <%/html:Form%>
   
-  <%/webuic:DataSessionComponent%>
+  <%/With%>
+  
+  <%/@include%>
   
 <%/@namespace%>

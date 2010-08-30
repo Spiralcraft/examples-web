@@ -13,7 +13,7 @@
           padSize="3"
           padX="displayName==null"          
           %> 
-          <%Iterate"%>
+          <%Iterate%>
             <%Group x="true"%>
               <%GroupHeader%>
                 <table>

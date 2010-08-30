@@ -1,15 +1,50 @@
 <html>
+  
+  <%$box export="true"%>
+    <div style="border:2px solid;padding:5px;margin:5px">
+      <%@insert%>
+        // put box contents here
+      <%/@insert%>
+    </div>
+  <%/$box%>
+    
+  <%$field export="true" imports="caption,actions,assistText" %>
+    <!-- field -->
+    <div class="field">
+       <%caption/%>: <%@insert/%> <%actions/%>
+       <p><%assistText/%></p><br/></br>
+    </div> 
+    <!-- /field -->
+  <%/$field%>
+  
+  <%$formHeader export="true"%>
+    <!-- formHeader -->
+    <div class="formHeader">
+      <%@insert/%>
+    </div>
+    <!-- /formHeader -->
+  <%/$formHeader%>
+  
+  
+  <%$controlSkin export="true" tgns:webui="class:/spiralcraft/servlet/webui/"%>
+    <div class="control">
+      <%@insert/%>
+      <%If x="[webui:Control].state.errorState"%>
+        <div class="error"><%=[webui:Control].state.errors/%></div>
+      <%/If%>
+    </div>
+  <%/$controlSkin%>
+  
+  
   <head>
   </head>
   <body>
     <div style="border:1px solid;padding:5px;">
+
     <!-- skin main insert -->
-    
-    
     <%@insert/%>
-    
-    
     <!-- / skin main insert -->
+
     </div>
     
     
