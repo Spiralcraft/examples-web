@@ -7,26 +7,28 @@
    
   <%@include resource="context:/skinning/skin.webui"%>
   
-  <%With x="{ file:[@jnet:URI] }" holdWhileX="true"%>
+  
     <%$uploader imports="caption,assistText,dir"%>
-      <div style="margin:20px">
-      <%field%>
-        <%$caption%><%caption/%><%/$caption%>
-        <%$assistText%><%assistText/%><%/$assistText%>
-        <%@insert/%>
-        <%$actions%>
-          <%html:SubmitButton
-            x="null"
-            label="upload"
-          /%>
-        <%/$actions%>
-        <p>Last upload: <a href="<%dir/%>/<%=file/%>"><%dir/%>/<%=file/%></a>
-        </p>
+      <%With x="{ file:[@jnet:URI] }" holdWhileX="true"%>
+        <div style="margin:20px">
+        <%field%>
+          <%$caption%><%caption/%><%/$caption%>
+          <%$assistText%><%assistText/%><%/$assistText%>
+          <%@insert/%>
+          <%$actions%>
+            <%html:SubmitButton
+              x="null"
+              label="upload"
+            /%>
+          <%/$actions%>
+          <p>Last upload: <a href="<%dir/%>/<%=file/%>"><%dir/%>/<%=file/%></a>
+          </p>
+          
+        <%/field%>
         
-      <%/field%>
-      
-      </div>
-      
+        </div>
+      <%/With%>
+        
     <%/$uploader%>
   
     <%html:Form%>
@@ -88,10 +90,62 @@
         /%>
       <%/uploader%>
 
+      <%uploader%>
+        <%$caption%>Fixed filename
+        <%/$caption%>
+
+        <%$assistText%>This will save the upload to a standard filename,
+          with the extension provided by the input. If the file exists,
+          a unique filename will be generated that has the specified prefix
+          and suffix, with a " (n)" appended after the prefix.
+        <%/$assistText%>
         
+        <%$dir%>/uploads<%/$dir%>
+        
+        <%html:FileInput
+          x="file"
+          contextRelativeRoot='context:/uploads/'
+          filename="uploaded"
+        /%>
+      <%/uploader%>      
+      
+      <%uploader%>
+        <%$caption%>Fixed filename- overwrite
+        <%/$caption%>
+
+        <%$assistText%>This will save the upload to a standard filename,
+          with the extension provided by the input. If the file exists,
+          it will be overwritten.
+        <%/$assistText%>
+        
+        <%$dir%>/uploads<%/$dir%>
+        
+        <%html:FileInput
+          x="file"
+          contextRelativeRoot='context:/uploads/'
+          filename="uploaded"
+          overwrite="true"
+        /%>
+      <%/uploader%>       
+
+      <%uploader%>
+        <%$caption%>Max size
+        <%/$caption%>
+
+        <%$assistText%>This will upload to the uploads dir but will not
+          accept a file larget than 16384 bytes
+        <%/$assistText%>
+        
+        <%$dir%>/uploads<%/$dir%>
+        
+        <%html:FileInput
+          x="file"
+          contextRelativeRoot='context:/uploads/'
+          maxSize="16384"
+        /%>
+      <%/uploader%>        
     <%/html:Form%>
   
-  <%/With%>
   
   <%/@include%>
   
