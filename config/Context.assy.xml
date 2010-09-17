@@ -50,6 +50,9 @@
         
       <URLPatterns>/data/*
       </URLPatterns>
+      
+      <URLPatterns>/dataAPI/*
+      </URLPatterns>
     </httpd:ServletMapping>
 
     <httpd:ServletMapping>

@@ -1,0 +1,126 @@
+<autofilter:AutoFilter.list
+  xmlns:autofilter="class:/spiralcraft/servlet/autofilter"
+  xmlns:data="class:/spiralcraft/data/"
+  xmlns:query="class:/spiralcraft/data/query/"
+  xmlns:http="class:/javax/servlet/http/"
+  xmlns:task="class:/spiralcraft/task/"
+  xmlns:dtask="class:/spiralcraft/data/task/"
+  xmlns:j="class:/java/lang/"
+  xmlns:example="class:/spiralcraft/data/test/example/"  
+  >
+
+  <autofilter:DataSessionFilter/>
+  
+  <autofilter:TaskFilter>    
+    <debug>true
+    </debug>
+    
+    <whenX>
+      [http:HttpServletRequest].pathInfo=="/customer"
+    </whenX>
+    
+    <task>
+      <task:Eval>
+        <contextX>
+          { [#context]
+            customerId:[@j:Integer]
+          }
+        </contextX>
+        
+        <x>
+          [*dtask:Fetch
+            { [*query:Selection
+                {[@example:Customer].type
+                ,`.id==[context].customerId`
+                }
+              ]
+            }
+          ].()
+        </x>
+      </task:Eval>
+    </task>
+       
+       
+    <queryBindings>
+      <autofilter:ParameterBinding>
+        <name>customerId
+        </name>
+        <target>customerId
+        </target>
+      </autofilter:ParameterBinding>
+    </queryBindings>
+    
+    <renderer>
+      <sax:XmlDataRenderer xmlns:sax="class:/spiralcraft/data/sax/">
+        <x>result
+        </x>
+      </sax:XmlDataRenderer>
+    </renderer>
+  </autofilter:TaskFilter> 
+  
+  
+  
+
+  <autofilter:TaskFilter>    
+    <debug>true
+    </debug>
+    
+    <whenX>
+      [http:HttpServletRequest].pathInfo=="/customerAddScore"
+    </whenX>
+    
+    <task>
+      <task:Eval>
+        <contextX>
+          { [#context]
+            customerId:[@j:Integer]
+            ,score:[@j:Float]
+          }
+        </contextX>
+        
+        <x>
+          [*dtask:Fetch
+            { [*query:Selection
+                {[@example:Customer].type
+                ,`.id==[context].customerId`
+                }
+              ]
+            }
+          ].()
+          .@top
+          .[*dtask:Edit].()
+          { .score=([context].score!=null?.score+[context].score:.score)
+          , .@tuple.save()
+          , .@tuple.original
+          }
+        </x>
+      </task:Eval>
+    </task>
+       
+       
+    <queryBindings>
+      <autofilter:ParameterBinding>
+        <name>customerId
+        </name>
+        <target>customerId
+        </target>
+      </autofilter:ParameterBinding>
+      <autofilter:ParameterBinding>
+        <name>score
+        </name>
+        <target>score
+        </target>
+      </autofilter:ParameterBinding>      
+    </queryBindings>
+    
+    <renderer>
+      <sax:XmlDataRenderer xmlns:sax="class:/spiralcraft/data/sax/">
+        <x>result
+        </x>
+      </sax:XmlDataRenderer>
+    </renderer>
+  </autofilter:TaskFilter>   
+
+  
+</autofilter:AutoFilter.list>
+
