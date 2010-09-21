@@ -1,0 +1,37 @@
+<%@namespace
+  webuic="class:/spiralcraft/servlet/webui/components/"
+  html="class:/spiralcraft/servlet/webui/components/html/"
+  cw="context:/WEB-INF/webui/"
+  %> 
+ 
+  <%webuic:DataSessionComponent
+    typeX="[@cw:CustomerEditSession].type"
+    %>
+    <%html:Form%>
+    
+    
+    
+      <%html:Select
+        x="[cw:CustomerEditSession].selectedCustomerIdList"
+        source="[cw:CustomerEditSession].allCustomers"
+        multi="true"
+        %>
+        <%Iterate%>
+          <%html:Option value=".id"%><%=.displayName/%>
+          <%/html:Option%>
+          <br/>
+        <%/Iterate%>
+      <%/html:Select%>
+
+
+
+      <%html:SubmitButton
+        x="null"
+        label="submit"
+      /%>  
+        
+    <%/html:Form%>
+  
+  <%/webuic:DataSessionComponent%>
+  
+<%/@namespace%>
