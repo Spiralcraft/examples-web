@@ -5,7 +5,7 @@
   
     <vfsc:Authority>
      
-      <debugLevel>FINE
+      <debugLevel>INFO
       </debugLevel>
       
       <grafts>
@@ -18,6 +18,18 @@
       </grafts>
     </vfsc:Authority>
     
+    <vfsc:Authority>
+     
+      <debugLevel>INFO
+      </debugLevel>
+      
+      <authorityName>data
+      </authorityName>
+      
+      <rootURI>${spiralcraft.builder.dir}/../data/live/
+      </rootURI>
+      
+    </vfsc:Authority>
     
   </authorities>
 </vfsc:FileSpace>

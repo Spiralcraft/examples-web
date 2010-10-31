@@ -13,7 +13,7 @@
       <baseResourceURI>context://data/
       </baseResourceURI>
       
-      <schema ref="example:Example.schema.xml"/>
+      <schema dataURI="example:Example.schema.xml"/>
       
     </data-xml:XmlStore>
   </stores>

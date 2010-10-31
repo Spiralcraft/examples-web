@@ -20,8 +20,8 @@
   
   <af:ReferenceFocusFilter>
 
-    <instanceURI>context://config/Space.xml
-    </instanceURI>
+    <typeURI>context://config/Space
+    </typeURI>
                 
     <scope>CONSTANT
     </scope>

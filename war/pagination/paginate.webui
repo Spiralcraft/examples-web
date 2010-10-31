@@ -1,0 +1,77 @@
+<%@include resource="context:/skinning/skin.webui"
+  tgns:webuic="class:/spiralcraft/servlet/webui/components/"
+  tgns:html="class:/spiralcraft/servlet/webui/components/html/"
+  tgns:cw="context:/WEB-INF/webui/"  
+  tgns:j="class:/java/lang/"
+  %>
+
+  <%webuic:DataSessionComponent
+    typeX="[@cw:CustomerEditSession].type"
+    %>
+    <%html:Form%>
+
+
+      <%webuic:Paginate x="[cw:CustomerEditSession].allCustomers" resetActionName="reset"%>
+        <div>    
+          <%If x="[webuic:Paginate].state.currentPage>0"%>
+            <%html:Link 
+              x="[webuic:Paginate].currentPageCommand([webuic:Paginate].state.currentPage-1)"
+              %>&lt; Last
+            <%/html:Link%>|
+          <%/If%>
+          
+          <%Iterate 
+            x="[webuic:Paginate].state.pageList
+                #{{
+                  page := ..
+                  ,currentPage := [webuic:Paginate].state.currentPage
+                  ,distance := [@j:Math].@abs(.currentPage-.page)
+                }}
+                [.distance<3 || (.distance<=20 && .page%10==9)]
+              "
+            %>
+            
+            <%If x="[Iterate].index>0"%>|<%/If%>
+  
+            <%If x=".currentPage!=.page"%>
+              <%html:Link x="[webuic:Paginate].currentPageCommand(.page)"%>
+                <%=.page+1/%>
+              <%/html:Link%>
+            <%Else/%>
+              <a href="" style="font-size:130%;"><%=.page+1/%></a>
+            <%/If%>
+          <%/Iterate%>
+  
+          <%If x="[webuic:Paginate].state.currentPage<[webuic:Paginate].state.pageCount-1"%>
+                   
+            |<%html:Link 
+              x="[webuic:Paginate].currentPageCommand([webuic:Paginate].state.currentPage+1)"
+              %>Next &gt;
+            <%/html:Link%>
+          <%/If%>
+        
+        </div>
+        
+        <div>
+          <table>
+            <tr>
+              <th>id</th>
+              <th>...</th>
+              <th>name</th>
+            </tr>
+            <%Iterate%>
+              <tr>
+                <td><%=.id/%>
+                </td>
+                <td></td>
+                <td><%=.displayName/%>
+                </td>
+              </tr>
+            <%/Iterate%>
+          </table>
+        </div>
+
+      <%/webuic:Paginate%>
+    <%/html:Form%>
+  <%/webuic:DataSessionComponent%>
+<%/@include%>
