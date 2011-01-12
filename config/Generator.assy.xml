@@ -24,7 +24,7 @@
       <name>generate
       </name>
       
-      <cycleFactor>1000
+      <cycleFactor>10
       </cycleFactor>
       
       <chain>
