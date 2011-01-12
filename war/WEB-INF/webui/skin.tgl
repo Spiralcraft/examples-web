@@ -7,6 +7,15 @@
   %> 
 <html>
   <head>
+    <script type="text/javascript" src="/js/jquery.min.js">
+    </script>
+    <script type="text/javascript" src="/js/jquery.simplemodal.js">
+    </script>
+    <script type="text/javascript" src="/js/spiralcraft.js">
+    </script>
+    <script type="text/javascript" src="/js/spiralcraft-jquery.js">
+    </script>
+    <%@include resource="spiralcraft-jsclient.tgl"/%>
   </head>
   <body>
   

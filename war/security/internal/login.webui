@@ -9,9 +9,9 @@
   sutil="class:/spiralcraft/util/string/"
   codec="class:/spiralcraft/codec/text/"
   %>
-  <%@include resource="context:/WEB-INF/webui/skin.webui"%>
+  <%@include resource="context:/WEB-INF/webui/skin.tgl"%>
   
-    <script type="text/javascript" src="/.js/security/sha256.js">
+    <script type="text/javascript" src="/js/security/sha256.js">
     </script>
     
     <script type="text/javascript">

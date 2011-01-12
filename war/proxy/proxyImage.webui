@@ -1,5 +1,5 @@
 
-  <%@include resource="context:/WEB-INF/webui/skin.webui"%>
+  <%@include resource="context:/WEB-INF/webui/skin.tgl"%>
   
     This is a proxied image from permitted localhost:
     

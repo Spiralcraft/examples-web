@@ -1,4 +1,4 @@
-<%@include resource="skin.webui"%>
+<%@include resource="skin.tgl"%>
 
 <pre>
 <%=.@focus.focusChain/%>

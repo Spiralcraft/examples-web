@@ -1,9 +1,15 @@
-<%@namespace
-  webuic="class:/spiralcraft/servlet/webui/components/"
-  html="class:/spiralcraft/servlet/webui/components/html/"
-  cw="context:/WEB-INF/webui/"  
+<%@include resource="context:/WEB-INF/webui/skin.tgl"
+  tgns:webuic="class:/spiralcraft/servlet/webui/components/"
+  tgns:html="class:/spiralcraft/servlet/webui/components/html/"
+  tgns:cw="context:/WEB-INF/webui/"  
   %> 
- 
+  <script type="text/javascript">
+   $(function(){
+     SPIRALCRAFT.webui.sessionSync(true);
+   });
+  
+  </script>
+  
   <%webuic:DataSessionComponent
     typeX="[@cw:CustomerEditSession].type"
     %>
@@ -34,4 +40,4 @@
   
   <%/webuic:DataSessionComponent%>
   
-<%/@namespace%>
+<%/@include%>

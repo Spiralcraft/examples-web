@@ -5,7 +5,7 @@
   jnet="class:/java/net/"
   %> 
    
-  <%@include resource="context:/skinning/skin.webui"%>
+  <%@include resource="context:/skinning/skin.tgl"%>
   
   
     <%$uploader imports="caption,assistText,dir"%>

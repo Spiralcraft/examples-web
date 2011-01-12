@@ -6,7 +6,7 @@
   tg="class:/spiralcraft/textgen/"
   jnet="class:/java/net/"
   %>
-  <%@include resource=":appui:skin.webui"%>
+  <%@include resource=":appui:skin.tgl"%>
     <%html:Form%>
   
 

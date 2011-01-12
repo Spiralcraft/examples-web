@@ -1,2 +1,4 @@
 *.jar
 ivy
+jquery.simplemodal.js
+jquery.min.js

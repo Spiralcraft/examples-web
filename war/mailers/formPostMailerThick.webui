@@ -6,7 +6,7 @@
   jnet="class:/java/net/"
   appui="context:/WEB-INF/webui/"
   %>
-  <%@include resource="context:/WEB-INF/webui/skin.webui"%>
+  <%@include resource="context:/WEB-INF/webui/skin.tgl"%>
     <%html:Form%>
   
       <%appui:FormMailerControl        

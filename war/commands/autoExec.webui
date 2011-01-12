@@ -3,7 +3,7 @@
   task="class:/spiralcraft/task/"
   servlet="class:/javax/servlet/http/"
   %> 
-  <%@include resource="context:/WEB-INF/webui/skin.webui"%>
+  <%@include resource="context:/WEB-INF/webui/skin.tgl"%>
 
     <%task:Debug
       messageX

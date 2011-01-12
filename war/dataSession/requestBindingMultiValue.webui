@@ -2,7 +2,7 @@
   webuic="class:/spiralcraft/servlet/webui/components/"
   cw="context:/WEB-INF/webui/"
   %> 
-  <%@include resource="context:/WEB-INF/webui/skin.webui"%>
+  <%@include resource="context:/WEB-INF/webui/skin.tgl"%>
 
     <%webuic:DataSessionComponent
       typeX="[@cw:CustomerEditSession].type"

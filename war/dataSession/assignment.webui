@@ -5,7 +5,7 @@
   lang="class:/spiralcraft/lang/"
   jlang="class:/java/lang/"
   %> 
-  <%@include resource="context:/WEB-INF/webui/skin.webui"%>
+  <%@include resource="context:/WEB-INF/webui/skin.tgl"%>
 
     <%webuic:DataSessionComponent
       typeX="[@cw:CustomerEditSession].type"

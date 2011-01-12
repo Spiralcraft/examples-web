@@ -8,7 +8,7 @@
   util="class:/spiralcraft/util/"
   sutil="class:/spiralcraft/util/string/"
   %>
-  <%@include resource="context:/WEB-INF/webui/skin.webui"%>
+  <%@include resource="context:/WEB-INF/webui/skin.tgl"%>
   
     <script type="text/javascript" src="/.js/security/sha256.js">
     </script>

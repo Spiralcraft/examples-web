@@ -3,6 +3,22 @@
   <property name="data.clean.dir" location="data/clean/"/>
   <property name="data.live.dir" location="data/live/"/>
     
+  <property name="js.dir" location="war/js"/>
+    
+  <fileset id="js.move" dir="lib">
+    <include name="spiralcraft*.js"/>
+    <include name="jquery.min.js"/>
+    <include name="jquery.simplemodal.js"/>
+  </fileset>
+      
+  <property name="tgl.dir" location="war/WEB-INF/webui"/>
+  <fileset id="tgl.move" dir="lib">
+    <include name="spiralcraft-jsclient.tgl"/>
+  </fileset>
+    
+
+
+      
   <import file="../../build/build-spiralcraft-common.xml"/>
   
   <target name="retrieve" depends="build-ivy.retrieve">
@@ -16,5 +32,8 @@
     <devtask exec="config/Generator"/>
 
   </target>    
+  
+
+    
 </project>
 
