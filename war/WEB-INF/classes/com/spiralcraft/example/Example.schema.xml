@@ -1,0 +1,47 @@
+<meta:Schema
+  xmlns:transport="class:/spiralcraft/data/access/"
+  xmlns:example="class:/com/spiralcraft/example/"
+  xmlns:meta="class:/spiralcraft/data/types/meta/"
+  xmlns:sec="class:/spiralcraft/security/"
+  xmlns:task="class:/spiralcraft/task/"
+  xmlns:dspi="class:/spiralcraft/data/spi/"
+  >
+   
+  <entities>
+
+    <meta:Entity>
+      <type><example:Contact.type/>
+      </type>
+      
+      <deltaTriggers>
+        <dspi:TaskDeltaTrigger>
+        
+          <when>AFTER
+          </when>
+          
+          <forInsert>true
+          </forInsert>
+          
+          <forUpdate>true
+          </forUpdate>    
+          
+          <forDelete>true
+          </forDelete>      
+          
+          <task>
+            <task:Eval>
+              <x>.@log("Fired after-trigger for "+.)
+              </x>
+            </task:Eval>
+          </task>  
+        </dspi:TaskDeltaTrigger>
+      </deltaTriggers>
+    </meta:Entity>
+
+    <meta:Entity>
+      <type><sec:Login.type/>
+      </type>
+    </meta:Entity>
+  </entities>
+  
+</meta:Schema>

@@ -8,7 +8,7 @@
   <%@include resource="context:/WEB-INF/webui/skin.tgl"%>
 
     <%webuic:DataSessionComponent
-      typeX="[@cw:CustomerEditSession].type"
+      typeX="[@cw:ContactEditSession].type"
       %>
       
       <%.defaultAssignments%>
@@ -29,10 +29,10 @@
       <%/.assignments%>
     
       
-      User agent is: <%=[cw:CustomerEditSession].userAgent/%><br/><br/>
+      User agent is: <%=[cw:ContactEditSession].userAgent/%><br/><br/>
       
       Elapsed session time is: 
-        <%= [cw:CustomerEditSession].elapsedSessionTime/1000.0 /%> seconds
+        <%= [cw:ContactEditSession].elapsedSessionTime/1000.0 /%> seconds
       
     <%/webuic:DataSessionComponent%>
 

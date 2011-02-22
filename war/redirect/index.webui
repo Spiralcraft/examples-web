@@ -1,0 +1,16 @@
+<%@include resource="context:/WEB-INF/webui/skin.tgl"%>
+  <%With x='[@vfs:Resolver].@getInstance().resolve("context:/commands/").asContainer()'
+    tgns:vfs="class:/spiralcraft/vfs/"
+    tgns:fn="class:/spiralcraft/lang/functions/"
+    %>
+    <table>
+      <%Iterate x="children.[*fn:Sort{`.lastModified`,true}]"%>
+        <tr>
+          <td><a href='commands/<%=.localName+(.asContainer()!=null?"/":"")/%>'><%=.localName/%></a></td>
+          <td><%=.size/%></td>
+          <td><%DateFormat x=".lastModified" format="yyyy-MM-dd HH:mm:ss"/%></td>
+        </tr>
+      <%/Iterate%>
+    </table>
+  <%/With%>
+<%/@include%>

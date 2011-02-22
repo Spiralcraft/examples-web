@@ -1,16 +1,10 @@
 <task:TaskRunner
   xmlns:task="class:/spiralcraft/task/"
-  xmlns:io="class:/spiralcraft/io/"
   xmlns:config="./"
-  xmlns:service="class:/spiralcraft/service/"
-  xmlns:example="class:/spiralcraft/data/test/example/"
-  xmlns:dxml="class:/spiralcraft/data/xml/"
-  xmlns:data="class:/spiralcraft/data/"
-  xmlns:da="class:/spiralcraft/data/access/"
-  xmlns:query="class:/spiralcraft/data/query/"
+  xmlns:example="class:/com/spiralcraft/example/"
   xmlns:dtest="class:/spiralcraft/data/test/"
   xmlns:test="class:/spiralcraft/test/"
-  xmlns:vfs="class:/spiralcraft/vfs/task/"
+  xmlns:dtask="class:/spiralcraft/data/task/"
   >
   
   <services>
@@ -33,9 +27,45 @@
           
           <scenarios>
             
-            <datatest:Generate
-              xmlns:datatest="class:/spiralcraft/data/test/"
-            />
+            <task:Cycle>
+            
+              <maxCycles x="[test:LoadGroup].cycleFactor"/>
+                
+              <contextX><dtest:CounterX/>
+              </contextX>
+              
+              <chain>
+            
+                <task:Sequence>
+                  <scenarios>
+                
+            
+            
+                    <dtask:Session>
+                      <chain>
+                        <task:Eval>
+                          <x>
+                            [@example:Contact.buffer]
+                              .(displayName:="Contact "+[context].count)
+                              .@tuple.save()
+                          </x>
+                        </task:Eval>
+            
+                      
+                      </chain>
+                    </dtask:Session>
+                    
+                    
+                    
+                    <task:Eval>
+                      <x>[context].increment()
+                      </x>
+                    </task:Eval>
+                  
+                  </scenarios>
+                </task:Sequence>
+              </chain>
+            </task:Cycle>
           </scenarios>
             
 

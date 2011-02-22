@@ -8,11 +8,11 @@
   %> 
   <%@include resource="context:/WEB-INF/webui/skin.tgl"%>
     <%webuic:DataSessionComponent
-      typeX="[@cw:CustomerEditSession].type"
+      typeX="[@cw:ContactEditSession].type"
       %>    
       <%html:Form%>
 
-        <%html:TextInput x="[cw:CustomerEditSession].searchTerms" name="test" /%>
+        <%html:TextInput x="[cw:ContactEditSession].searchTerms" name="test" /%>
 
         <%task:Debug
           messageX

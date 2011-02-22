@@ -3,7 +3,7 @@
 <data:Space
   xmlns:data-xml="class:/spiralcraft/data/xml/"
   xmlns:data="class:/spiralcraft/data/"
-  xmlns:example="class:/spiralcraft/data/test/example/"
+  xmlns:example="class:/com/spiralcraft/example/"
   >
   <stores>
     <data-xml:XmlStore>

@@ -6,7 +6,7 @@
   xmlns:task="class:/spiralcraft/task/"
   xmlns:dtask="class:/spiralcraft/data/task/"
   xmlns:j="class:/java/lang/"
-  xmlns:example="class:/spiralcraft/data/test/example/"  
+  xmlns:example="class:/com/spiralcraft/example/"  
   >
 
   <autofilter:DataSessionFilter/>
@@ -16,22 +16,22 @@
     </debug>
     
     <whenX>
-      [http:HttpServletRequest].pathInfo=="/customer"
+      [http:HttpServletRequest].pathInfo=="/Contact"
     </whenX>
     
     <task>
       <task:Eval>
         <contextX>
           { [#context]
-            customerId:[@j:Integer]
+            ContactId:[@j:Integer]
           }
         </contextX>
         
         <x>
           [*dtask:Fetch
             { [*query:Selection
-                {[@example:Customer].type
-                ,`.id==[context].customerId`
+                {[@example:Contact].type
+                ,`.id==[context].ContactId`
                 }
               ]
             }
@@ -43,9 +43,9 @@
        
     <queryBindings>
       <autofilter:ParameterBinding>
-        <name>customerId
+        <name>ContactId
         </name>
-        <target>customerId
+        <target>ContactId
         </target>
       </autofilter:ParameterBinding>
     </queryBindings>
@@ -66,14 +66,14 @@
     </debug>
     
     <whenX>
-      [http:HttpServletRequest].pathInfo=="/customerAddScore"
+      [http:HttpServletRequest].pathInfo=="/ContactAddScore"
     </whenX>
     
     <task>
       <task:Eval>
         <contextX>
           { [#context]
-            customerId:[@j:Integer]
+            ContactId:[@j:Integer]
             ,score:[@j:Float]
           }
         </contextX>
@@ -81,8 +81,8 @@
         <x>
           [*dtask:Fetch
             { [*query:Selection
-                {[@example:Customer].type
-                ,`.id==[context].customerId`
+                {[@example:Contact].type
+                ,`.id==[context].ContactId`
                 }
               ]
             }
@@ -100,9 +100,9 @@
        
     <queryBindings>
       <autofilter:ParameterBinding>
-        <name>customerId
+        <name>ContactId
         </name>
-        <target>customerId
+        <target>ContactId
         </target>
       </autofilter:ParameterBinding>
       <autofilter:ParameterBinding>

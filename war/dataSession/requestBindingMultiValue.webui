@@ -5,12 +5,12 @@
   <%@include resource="context:/WEB-INF/webui/skin.tgl"%>
 
     <%webuic:DataSessionComponent
-      typeX="[@cw:CustomerEditSession].type"
+      typeX="[@cw:ContactEditSession].type"
       %>
       <%.requestBindings%>
         <%webuic:RequestBinding 
           name="id" 
-          target="selectedCustomerIdList"
+          target="selectedContactIdList"
           passNull="true"
           debug="true"
         /%>
@@ -19,8 +19,8 @@
       <a href="?id=10&amp;id=15&amp;id=20">Select #10,#15,#20</a><br>
       <a href="?id=25">Select #25</a><br>
       
-      <%Iterate x="[cw:CustomerEditSession].selectedCustomerIdList"%>
-        Selected customer id: <%=./%>
+      <%Iterate x="[cw:ContactEditSession].selectedContactIdList"%>
+        Selected Contact id: <%=./%>
       <%/Iterate%>
       
     <%/webuic:DataSessionComponent%>

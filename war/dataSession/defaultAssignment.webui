@@ -7,7 +7,7 @@
   <%@include resource="context:/WEB-INF/webui/skin.tgl"%>
 
     <%webuic:DataSessionComponent
-      typeX="[@cw:CustomerEditSession].type"
+      typeX="[@cw:ContactEditSession].type"
       %>
       
       <%.defaultAssignments%>
@@ -18,7 +18,7 @@
       <%/.defaultAssignments%>
     
       
-      User agent is: <%=[cw:CustomerEditSession].userAgent/%>
+      User agent is: <%=[cw:ContactEditSession].userAgent/%>
       
     <%/webuic:DataSessionComponent%>
 

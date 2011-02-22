@@ -5,15 +5,15 @@
   %> 
  
   <%webuic:DataSessionComponent
-    typeX="[@cw:CustomerEditSession].type"
+    typeX="[@cw:ContactEditSession].type"
     %>
     <%html:Form%>
     
     
     
       <%html:Select
-        x="[cw:CustomerEditSession].selectedCustomerId"
-        source="[cw:CustomerEditSession].allCustomers"
+        x="[cw:ContactEditSession].selectedContactId"
+        source="[cw:ContactEditSession].allContacts"
         %>
         <%Iterate%>
           <%html:Option value=".id"%><%=.displayName/%>

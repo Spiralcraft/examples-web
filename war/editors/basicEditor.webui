@@ -1,0 +1,79 @@
+<%@include resource="context:/WEB-INF/webui/skin.tgl"
+  tgns:webuic="class:/spiralcraft/servlet/webui/components/"
+  tgns:html="class:/spiralcraft/servlet/webui/components/html/"
+  tgns:cw="context:/WEB-INF/webui/"  
+  tgns:example="class:/com/spiralcraft/example/"  
+  tgns:query="class:/spiralcraft/data/query/"  
+  tgns:dtask="class:/spiralcraft/data/task/"
+  tgns:j="class:/java/lang/"
+  tgns:fn="class:/spiralcraft/lang/functions/"
+  tgns:webui="class:/spiralcraft/servlet/webui/components"
+  %> 
+  <script type="text/javascript">
+   $(function(){
+     SPIRALCRAFT.webui.sessionSync(true);
+   });
+  
+  </script>
+  <%webui:DataSession%>
+    <%With x='
+      { [#session] 
+        selectedContactId:[@j:Integer] 
+        ,selectedContact:=
+          [*dtask:Fetch
+            { [*query:Selection
+                { [@example:Contact].type
+                , `.id==[session].selectedContactId`
+                }
+              ]
+            }
+          ]
+      }
+      '
+      holdWhileX="true"
+      %>
+      
+      <%html:Form%>
+        <%html:Select
+          x='.selectedContactId'
+          source='[*dtask:Fetch{[*query:Scan{[@example:Contact].type}]}]
+                  .()
+                  .[*fn:Sort{`.displayName`,false}]
+                  '
+          tag.onchange="this.form.submit();"
+          %>
+          <option value="-1">New...</option>
+          <%Iterate%>
+            <%html:Option value=".id"%><%=displayName/%><%/html:Option%>
+          <%/Iterate%>
+        <%/html:Select%>
+      <%/html:Form%>
+      
+      <%html:Form%>
+      
+        <%html:TupleEditor 
+          x="[session].selectedContact().@top"
+          autoCreate="true"
+          %>
+          <table>
+            <tr>
+              <td>Contact Id:</td>
+              <td><%=id/%>
+            </tr>
+            <tr>
+              <td>DisplayName:</td>
+              <td><%html:TextInput x="displayName"/%></td>
+            </tr>
+            <tr>
+              <td></td>
+              <td><%html:SubmitButton label="Save" x="[html:TupleEditor].saveCommand()"/%></td>
+            </tr>
+          </table>
+        
+        <%/html:TupleEditor%>
+      <%/html:Form%>    
+    <%/With%>
+  <%/webui:DataSession%>
+  
+  
+<%/@include%>

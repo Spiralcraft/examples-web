@@ -1,30 +1,30 @@
 <meta:Type
   xmlns:meta="class:/spiralcraft/data/types/meta/"
   xmlns:query="class:/spiralcraft/data/query/"
-  xmlns:example="class:/spiralcraft/data/test/example/"
+  xmlns:example="class:/com/spiralcraft/example/"
   >
   <fields>
     <meta:QueryField>
-      <name>allCustomers
+      <name>allContacts
       </name>
       <query>
         <query:Scan>
-          <type><example:Customer.type/>
+          <type><example:Contact.type/>
           </type>
         </query:Scan>
       </query>
     </meta:QueryField>
     
     <meta:Field>
-      <name>selectedCustomer
+      <name>selectedContact
       </name>
       
-      <type><example:Customer.type/>
+      <type><example:Contact.type/>
       </type>
     </meta:Field>
 
     <meta:Field>
-      <name>selectedCustomerId
+      <name>selectedContactId
       </name>
       
       <type><Integer.type/>
@@ -32,7 +32,7 @@
     </meta:Field>
     
     <meta:Field>
-      <name>selectedCustomerIdList
+      <name>selectedContactIdList
       </name>
       
       <type><Integer.array.type/>

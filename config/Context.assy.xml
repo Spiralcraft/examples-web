@@ -99,4 +99,13 @@
     </httpd:ServletHolder>
     
   </servletHolders>
+  
+  <errorPages>
+    <httpd:ErrorPage>
+      <errorCode>404
+      </errorCode>
+      <location>/WEB-INF/webui/errors/404.webui
+      </location>
+    </httpd:ErrorPage>
+  </errorPages>
 </httpd:MultiAliasHttpServiceContext>

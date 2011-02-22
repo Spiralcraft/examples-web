@@ -6,12 +6,12 @@
   %>
 
   <%webuic:DataSessionComponent
-    typeX="[@cw:CustomerEditSession].type"
+    typeX="[@cw:ContactEditSession].type"
     %>
     <%html:Form%>
 
 
-      <%webuic:Paginate x="[cw:CustomerEditSession].allCustomers" resetActionName="reset"%>
+      <%webuic:Paginate x="[cw:ContactEditSession].allContacts" resetActionName="reset"%>
         <%@include resource="pager.tgl"/%>
 
         

@@ -22,7 +22,15 @@
   xmlns:http="class:/javax/servlet/http/"
   xmlns:task="class:/spiralcraft/task/"
   >
-
+  <af:RedirectFilter>
+    <pattern>/
+    </pattern>
+    
+    <redirectURL>/index.webui
+    </redirectURL>
+    
+    
+  </af:RedirectFilter>
     
   <af:ReferenceFocusFilter>
 

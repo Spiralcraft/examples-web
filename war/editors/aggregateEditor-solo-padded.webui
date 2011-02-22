@@ -5,11 +5,11 @@
   %> 
  
   <%webuic:DataSessionComponent
-    typeX="[@cw:CustomerEditSession].type"
+    typeX="[@cw:ContactEditSession].type"
     %>
     <%html:Form%>
         <%html:AggregateEditor 
-          x="allCustomers"
+          x="allContacts"
           padSize="3"
           padX="displayName==null"          
           %> 

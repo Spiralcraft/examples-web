@@ -1,0 +1,16 @@
+<%With x="[http:HttpServletRequest]"
+  tgns:http="class:/javax/servlet/http/"
+  %>
+  <html>
+    <head>
+      <title><%=.getAttribute("javax.servlet.error.status_code")/%></title>
+    </head>
+    <body>
+      <h2><%=.getAttribute("javax.servlet.error.status_code")/%></h2>
+      
+      The specified location 
+        <b><%=.getAttribute("javax.servlet.error.request_uri")/%></b>
+      was not found on this server.
+    </body>
+  </html>
+<%/With%>
