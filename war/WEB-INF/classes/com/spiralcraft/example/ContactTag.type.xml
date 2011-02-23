@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<meta:Type
+  xmlns:meta="class:/spiralcraft/data/types/meta/"
+  xmlns:example="class:/spiralcraft/data/test/example"
+  xmlns:j="class:/java/lang/"
+  >
+ 
+
+  <fields>
+    <meta:Field>
+
+      <name>contactId
+      </name>
+
+      <type><Integer.type/>
+      </type>
+          
+    </meta:Field>
+
+    <meta:Field>
+      
+      <name>tagName
+      </name>
+      
+      <type>
+        <String.type>
+
+          <maxLength>128
+          </maxLength>
+        
+        </String.type>
+      </type>
+
+    </meta:Field>
+
+  </fields>
+      
+  <keys>
+    <meta:Key>
+
+      <fieldList>tagName,contactId
+      </fieldList>
+                
+      <primary>true
+      </primary>
+                
+    </meta:Key>
+
+    <meta:Key>
+
+      <fieldList>contactId
+      </fieldList>
+                
+                
+    </meta:Key>
+
+  </keys>
+
+</meta:Type>

@@ -1,0 +1,97 @@
+<%@include resource="context:/WEB-INF/webui/skin.tgl"
+  tgns:webuic="class:/spiralcraft/servlet/webui/components/"
+  tgns:html="class:/spiralcraft/servlet/webui/components/html/"
+  tgns:cw="context:/WEB-INF/webui/"  
+  tgns:example="class:/com/spiralcraft/example/"  
+  tgns:query="class:/spiralcraft/data/query/"  
+  tgns:dtask="class:/spiralcraft/data/task/"
+  tgns:j="class:/java/lang/"
+  tgns:fn="class:/spiralcraft/lang/functions/"
+  tgns:webui="class:/spiralcraft/servlet/webui/components"
+  tgns:lang="class:/spiralcraft/lang/"
+  %> 
+  <script type="text/javascript">
+   $(function(){
+     SPIRALCRAFT.webui.sessionSync(true);
+   });
+  
+  </script>
+  <%webui:DataSession%>
+    <%With x='
+      { [#session] 
+        selectedContactId:[@j:Integer] 
+        ,selectedContact:=
+          [*dtask:Fetch
+            { [*query:Selection
+                { [@example:Contact].type
+                , `.id==[session].selectedContactId`
+                }
+              ]
+            }
+          ]
+      }
+      '
+      holdWhileX="true"
+      %>
+      
+      <%html:Form%>
+        <%html:Select
+          x='.selectedContactId'
+          source='[*dtask:Fetch{[*query:Scan{[@example:Contact].type}]}]
+                  .()
+                  .[*fn:Sort{`.displayName`,false}]
+                  '
+          tag.onchange="this.form.submit();"
+          %>
+          <%Iterate%>
+            <%html:Option value=".id"%><%=displayName/%> <%If x='!.tags[.tagName=="flag"].@empty'%>***<%/If%>
+            <%/html:Option%>
+          <%/Iterate%>
+        <%/html:Select%>
+      <%/html:Form%>
+
+      <%With x="[session].selectedContact().@top"%>
+      
+        <%html:Form%>
+        
+          <table>
+            <tr>
+              <td>Contact Id:</td>
+              <td><%=id/%>
+            </tr>
+            <tr>
+              <td>DisplayName:</td>
+              <td><%=displayName/%></td>
+            </tr>
+
+            <tr>
+              <td></td>
+              <td>
+                <%html:TupleEditor 
+                  triggerKeyX=".id"
+                  x='.tags[.tagName=="flag"].@top'
+                  autoSave="true"
+                  retainNew="false"
+                  debug="true"
+                  %>
+                  <%.newAssignments%>
+                    <%lang:Assignment target='contactId' source='[example:Contact].id'/%>
+                    <%lang:Assignment target='tagName' source='"flag"'/%>
+                  <%/.newAssignments%>
+              
+                  <%If x="[html:TupleEditor].willExist"%>
+                    <%html:Button x="[html:TupleEditor].deleteCommand()"%>unflag<%/html:Button%>
+                  <%Else/%>
+                    <%html:Button x="[html:TupleEditor].ensureExists.command()" debug="true"%>flag<%/html:Button%>
+                  <%/If%>
+                <%/html:TupleEditor%>
+              </td>
+            </tr>
+          </table>
+        <%/html:Form%>    
+      <%/With%>
+    <%/With%>
+  <%/webui:DataSession%>
+  
+  
+<%/@include%>

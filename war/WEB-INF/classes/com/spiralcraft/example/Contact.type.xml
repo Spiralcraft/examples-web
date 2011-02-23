@@ -2,7 +2,7 @@
 
 <meta:Type
   xmlns:meta="class:/spiralcraft/data/types/meta/"
-  xmlns:example="class:/spiralcraft/data/test/example"
+  xmlns:example="class:/com/spiralcraft/example/"
   xmlns:j="class:/java/lang/"
   >
  
@@ -90,29 +90,6 @@
       </type>
 
     </meta:Field>
-        
-    <meta:Field>
-        
-      <name>score
-      </name>
-        
-      <type>
-        <Float.type/>
-      </type>
-    </meta:Field>
-    
-    <meta:CalculatedField>
-        
-      <name>computedScore
-      </name>
-        
-      <type>
-        <Float.type/>
-      </type>
-      
-      <expression>score*10.0F
-      </expression>
-    </meta:CalculatedField>
     
     <meta:Field>
         
@@ -148,6 +125,25 @@
       		
     </meta:Key>
 
+    <meta:Key>
+      <name>tags
+      </name>
+      
+      <fieldList>id
+      </fieldList>
+      
+      <foreignType><example:ContactTag.type/>
+      </foreignType>
+      
+      <importedKey>
+        <meta:Key>
+          <fieldList>contactId
+          </fieldList>
+        
+        </meta:Key>
+      </importedKey>
+    
+    </meta:Key>
 
   </keys>
 

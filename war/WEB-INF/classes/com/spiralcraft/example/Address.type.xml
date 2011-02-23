@@ -1,0 +1,56 @@
+<meta:Type
+  xmlns:meta="class:/spiralcraft/data/types/meta/"
+  xmlns:example="class:/spiralcraft/data/test/example"
+  >
+
+  <fields>
+    <meta:Field>
+      
+      <name>line1
+      </name>
+      
+      <type>
+        <String.type>
+
+          <maxLength>256
+          </maxLength>
+        
+        </String.type>
+      </type>
+      
+    </meta:Field>
+    
+    <meta:Field>
+
+      <name>line2
+      </name>
+      
+      <type>
+         <String.type>
+
+          <maxLength>256
+          </maxLength>
+        
+        </String.type>
+      </type>
+
+    </meta:Field>
+
+    <meta:Field>
+      
+      <name>city
+      </name>
+
+      <type>
+         <String.type>
+
+          <maxLength>128
+          </maxLength>
+        
+        </String.type>
+      </type>
+
+    </meta:Field>
+
+  </fields>
+</meta:Type>
