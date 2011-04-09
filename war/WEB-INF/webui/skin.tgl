@@ -7,15 +7,15 @@
   %> 
 <html>
   <head>
-    <script type="text/javascript" src="/js/jquery.min.js">
+    <script type="text/javascript" src="/js/jquery-core/jquery.min.js">
     </script>
-    <script type="text/javascript" src="/js/jquery.simplemodal.js">
+    <script type="text/javascript" src="/js/jquery-simplemodal/jquery.simplemodal.js">
     </script>
-    <script type="text/javascript" src="/js/spiralcraft.js">
+    <script type="text/javascript" src="/js/spiralcraft-jsclient/spiralcraft.js">
     </script>
-    <script type="text/javascript" src="/js/spiralcraft-jquery.js">
+    <script type="text/javascript" src="/js/spiralcraft-jsclient/spiralcraft-jquery.js">
     </script>
-    <%@include resource="spiralcraft-jsclient.tgl"/%>
+    <%@include resource="spiralcraft-jsclient/spiralcraft-jsclient.tgl"/%>
   </head>
   <body>
   

@@ -6,7 +6,8 @@
       vmargs="-Dspiralcraft.vfs.context.ContextResourceMap.debugLevel=FINE"
 -->  
   <target name="launch">
-    <devdaemon 
+    <devgui
+      launchArgs="--gui"
       env="httpd"
       codebase=".."
 

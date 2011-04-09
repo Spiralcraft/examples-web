@@ -23,7 +23,7 @@
       <task:Eval>
         <contextX>
           { [#context]
-            ContactId:[@j:Integer]
+            contactId:[@j:Integer]
           }
         </contextX>
         
@@ -31,7 +31,7 @@
           [*dtask:Fetch
             { [*query:Selection
                 {[@example:Contact].type
-                ,`.id==[context].ContactId`
+                ,`.id==[context].contactId`
                 }
               ]
             }
@@ -43,9 +43,9 @@
        
     <queryBindings>
       <autofilter:ParameterBinding>
-        <name>ContactId
+        <name>contactId
         </name>
-        <target>ContactId
+        <target>contactId
         </target>
       </autofilter:ParameterBinding>
     </queryBindings>
@@ -73,7 +73,7 @@
       <task:Eval>
         <contextX>
           { [#context]
-            ContactId:[@j:Integer]
+            contactId:[@j:Integer]
             ,score:[@j:Float]
           }
         </contextX>
@@ -82,7 +82,7 @@
           [*dtask:Fetch
             { [*query:Selection
                 {[@example:Contact].type
-                ,`.id==[context].ContactId`
+                ,`.id==[context].contactId`
                 }
               ]
             }
@@ -100,9 +100,9 @@
        
     <queryBindings>
       <autofilter:ParameterBinding>
-        <name>ContactId
+        <name>contactId
         </name>
-        <target>ContactId
+        <target>contactId
         </target>
       </autofilter:ParameterBinding>
       <autofilter:ParameterBinding>

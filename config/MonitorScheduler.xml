@@ -27,7 +27,7 @@
   
   <scenario>
     <task:Eval>
-      <x>@log("Hello!")
+      <x>null
       </x>
     </task:Eval>
   </scenario>

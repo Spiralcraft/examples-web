@@ -7,8 +7,13 @@
 
   <property name="tgl.dir" location="war/WEB-INF/webui"/>
     
+  <property name="logs.dir" location="run/log"/>
+    
+  <dirname property="project-dir" file="${ant.file.spiralcraft-examples-web}"/>
 
-
+  <pathconvert targetos="unix" property="project-dir.unix">
+    <path location="${project-dir}"/>
+  </pathconvert>
       
   <import file="../../build/build-spiralcraft-common.xml"/>
   
@@ -21,12 +26,13 @@
     description="reset data"
     >
     <devtask 
-      env="init config/Generator"
+      codebase="${project-dir}"
+      launchargs="--debug"
+      env="file:/${project-dir.unix}/init config/Generator"
     />
 
   </target>    
   
-
     
 </project>
 

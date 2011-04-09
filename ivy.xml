@@ -3,16 +3,13 @@
   <info organisation="spiralcraft" module="examples-gui">
   </info>
   <dependencies>
-    <dependency org="spiralcraft"  name="launcher"  rev="[0.4.12,)"/>
-    <dependency org="spiralcraft"  name="core"  rev="[0.4.13-dev,)"/>
-    <dependency org="spiralcraft"  name="net"  rev="[0.4.13-dev,)"/>
-    <dependency org="spiralcraft"  name="servlet"  rev="[0.4.13-dev,)"/>
-    <dependency org="spiralcraft"  name="pioneer"  rev="[0.4.13-dev,)"/>
-    <dependency org="spiralcraft"  name="textgen"  rev="[0.4.13-dev,)"/>
+    <dependency org="spiralcraft"  name="distrib-common"  rev="[0.4.14-dev1,)"/>
+    <dependency org="spiralcraft"  name="distrib-webfocus"  rev="[0.4.14-dev1,)" conf="default->libs"/>
     <dependency org="spiralcraft"  name="biz"  rev="[0.2,)"/>
     <dependency org="spiralcraft"  name="jsclient"  rev="[0.4.13,)"/>
-    <dependency org="jquery"  name="jquery"  rev="[1.4.3,)"/>
+    <dependency org="jquery"  name="core"  rev="[1.4.3,)"/>
     <dependency org="jquery"  name="simplemodal"  rev="[1.4.1,)"/>
+    <dependency org="spiralcraft"  name="gui"  rev="[0.4.14-dev1,)"/>
         
     <exclude artifact="spiralcraft-textgen-test"/>
   </dependencies>

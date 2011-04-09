@@ -3,7 +3,7 @@
   xmlns:service="class:/spiralcraft/service" 
   xmlns:httpd="class:/spiralcraft/pioneer/httpd" 
   xmlns:net="class:/spiralcraft/pioneer/net"
-  xmlns:config="../config/"
+  xmlns:config="context:/config/"
   >
 
   <services>
@@ -29,12 +29,12 @@
       
         <config:Context>
         
-          <documentRoot>../war
-          </documentRoot>
+          <documentRootURI>${spiralcraft.builder.dir}/../war
+          </documentRootURI>
           
           <accessLog>
             <httpd:RotatingFileAccessLog>
-              <fileSequence.directory>log
+              <fileSequence.directory>${spiralcraft.builder.dir}/../run/log
               </fileSequence.directory>
             </httpd:RotatingFileAccessLog>
           </accessLog>
