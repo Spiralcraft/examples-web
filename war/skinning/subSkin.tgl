@@ -1,4 +1,4 @@
-<%@include resource="skin.webui"%>
+<%@include resource="skin.tgl"%>
 
 [ This is a more specific skin which wraps the following content: ]
 <!-- specific content -->

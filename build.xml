@@ -1,5 +1,7 @@
 <project name="spiralcraft-examples-web" default="retrieve" basedir=".">
   
+  <property name="module" value="examples-web"/>
+    
   <property name="data.clean.dir" location="data/clean/"/>
   <property name="data.live.dir" location="data/live/"/>
     

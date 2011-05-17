@@ -1,4 +1,4 @@
-<%@include resource="subSkin.webui"%>
+<%@include resource="subSkin.tgl"%>
 
 [ This content is inside the subskin ]
 

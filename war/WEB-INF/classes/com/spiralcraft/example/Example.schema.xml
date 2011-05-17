@@ -14,6 +14,7 @@
       </type>
       
       <deltaTriggers>
+<!--       
         <dspi:TaskDeltaTrigger>
         
           <when>AFTER
@@ -35,6 +36,7 @@
             </task:Eval>
           </task>  
         </dspi:TaskDeltaTrigger>
+-->
       </deltaTriggers>
     </meta:Entity>
 
