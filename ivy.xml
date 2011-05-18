@@ -3,9 +3,9 @@
   <info organisation="spiralcraft" module="examples-web">
   </info>
   <dependencies>
-    <dependency org="spiralcraft"  name="distrib-common"  rev="[0.4.14-dev1,)"/>
-    <dependency org="spiralcraft"  name="distrib-webfocus"  rev="[0.4.14-dev1,)" conf="default->libs"/>
-    <dependency org="spiralcraft"  name="biz"  rev="[0.2,)"/>
+    <dependency org="spiralcraft"  name="distrib-common"  rev="[0.4.14-dev2,)"/>
+    <dependency org="spiralcraft"  name="distrib-webfocus"  rev="[0.4.14-dev2,)" conf="default->libs"/>
+    <dependency org="spiralcraft"  name="biz"  rev="[0.4.14-dev1,)"/>
     <dependency org="spiralcraft"  name="jsclient"  rev="[0.4.14-dev1,)"/>
     <dependency org="jquery"  name="core"  rev="[1.4.3,)"/>
     <dependency org="jquery"  name="simplemodal"  rev="[1.4.1,)"/>
