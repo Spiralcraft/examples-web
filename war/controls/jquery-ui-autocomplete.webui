@@ -1,0 +1,41 @@
+<%theme:page
+  tgns:theme="context://theme"
+  tgns:webuic="class:/spiralcraft/servlet/webui/components"
+  tgns:html="class:/spiralcraft/servlet/webui/components/html"
+  tgns:json="class:/spiralcraft/json/"
+  tgns:webui="class:/spiralcraft/servlet/webui/"
+  %>
+  <%webuic:Session
+    x='{ someText:="" }'
+    %>
+    <%html:Form%>
+  
+      <%html:TextInput 
+        x="someText" 
+        %>
+        <%.peerJSTag%>
+          <%html:PeerJSTag
+            dataJS='"{|[html:TextInput].registerPort("autocomplete")|}"'
+            onRegisterJS='$("#"+self.id).autocomplete({ source: self.data });'
+            requiredScripts='/js/jquery-core/jquery.min.js'
+            requiredScripts='/js/jquery-ui/jquery-ui.min.js'
+          /%>
+        <%/.peerJSTag%>
+
+        <%webuic:Port 
+          id="autocomplete" 
+          contentType="application/json"
+          isolatePort="true"
+          %>
+          <%=
+            [{ "zero","one","two","three","four","five","six","seven","eight","nine","ten" }]
+            [.contains([webui:ServiceContext].query.getValue("term"))]
+            .[*json:ToJson]
+          /%>
+        <%/webuic:Port%>
+
+      <%/html:TextInput%>
+
+    <%/html:Form%>
+  <%/webuic:Session%>
+<%/theme:page%>

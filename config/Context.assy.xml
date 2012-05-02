@@ -6,6 +6,20 @@
   <maxSessionInactiveInterval>7200
   </maxSessionInactiveInterval>
       
+  <initParameters>
+    <httpd:InitParameter>
+      <name>spiralcraft.instance.configURI
+      </name>
+      <value>${spiralcraft.builder.dir}
+      </value>
+    </httpd:InitParameter>
+    <httpd:InitParameter>
+      <name>spiralcraft.instance.themeURI
+      </name>
+      <value>webui/spiralcraft-webapp/themes/default
+      </value>
+    </httpd:InitParameter>    
+  </initParameters>
   <debug>false
   </debug>
   

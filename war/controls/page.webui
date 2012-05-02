@@ -1,0 +1,5 @@
+<%webapp:page
+  tgns:webapp="context:/WEB-INF/webui/spiralcraft-webapp"
+  %>
+  This is some stuff on the page
+<%/webapp:page%>
