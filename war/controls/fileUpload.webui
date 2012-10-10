@@ -3,9 +3,10 @@
   html="class:/spiralcraft/servlet/webui/components/html/"
   cw="context:/WEB-INF/webui/"
   jnet="class:/java/net/"
+  skin="context:/skinning/"
   %> 
    
-  <%@include resource="context:/skinning/skin.tgl"%>
+  <%skin:skin%>
   
   
     <%$uploader imports="caption,assistText,dir"%>
@@ -147,6 +148,6 @@
     <%/html:Form%>
   
   
-  <%/@include%>
+  <%/skin:skin%>
   
 <%/@namespace%>

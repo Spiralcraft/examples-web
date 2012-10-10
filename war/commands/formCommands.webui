@@ -6,7 +6,7 @@
   html="class:/spiralcraft/servlet/webui/components/html/"
   %> 
   <%@include resource="context:/WEB-INF/webui/skin.tgl"%>
-    <%With  x="{ value:[@j:String] }" %>
+    <%With  x="[#dataModel] { value:[@j:String] }" %>
     
       <%html:Form%>
 
@@ -19,28 +19,28 @@
 
         <%task:Debug
           messageX
-            ='"ALWAYS command fired- value="+....value'
+            ='"ALWAYS command fired- value="+[dataModel].value'
           %>
           <%html:FormCommand x="command()"/%>
         <%/task:Debug%>
 
         <%task:Debug
           messageX
-            ='"CONDITIONAL command fired- value="+....value'
+            ='"CONDITIONAL command fired- value="+[dataModel].value'
           %>
-          <%html:FormCommand whenX='....value=="fire"' x="command()"/%>
+          <%html:FormCommand whenX='[dataModel].value=="fire"' x="command()"/%>
         <%/task:Debug%>
     
         <%task:Debug
           messageX
-            ='"SPECIFIC command FOO fired- value="+....value'
+            ='"SPECIFIC command FOO fired- value="+[dataModel].value'
           %>
           <%html:FormCommand name='FOO' x="command()"/%>
         <%/task:Debug%>
 
         <%task:Debug
           messageX
-            ='"SPECIFIC command BAR fired- value="+....value'
+            ='"SPECIFIC command BAR fired- value="+[dataModel].value'
           %>
           <%html:FormCommand name='BAR' x="command()"/%>
         <%/task:Debug%>

@@ -44,20 +44,12 @@
 
   <config:FilesPublishFilter/>
   
-  <af:ReferenceFocusFilter>
 
-    <typeURI>context://config/Space
-    </typeURI>
-                
-    <scope>CONSTANT
-    </scope>
-    
-  </af:ReferenceFocusFilter>
   
   <af:ReferenceFocusFilter>
         
-    <instanceURI>context://config/SMTPConnector.xml
-    </instanceURI>
+    <typeURI>context://config/SMTPConnector
+    </typeURI>
         
   </af:ReferenceFocusFilter>   
   
@@ -81,7 +73,7 @@
     <task>
       <task:Eval>
         <contextX>
-          { [#context]
+          [#context] { 
           
             slug:=[http:HttpServletRequest].servletPath.substring(4)
             ,search:=.slug.endsWith("/")?.slug{.substring(0,.length()-1)}:.slug

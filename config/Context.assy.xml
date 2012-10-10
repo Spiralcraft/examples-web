@@ -1,6 +1,7 @@
-<httpd:MultiAliasHttpServiceContext
+<base:Context
   xmlns:httpd="class:/spiralcraft/pioneer/httpd/"
   xmlns:autofilter="class:/spiralcraft/servlet/autofilter/"
+  xmlns:base="context://package-base/"
   >
                   
   <maxSessionInactiveInterval>7200
@@ -8,112 +9,23 @@
       
   <initParameters>
     <httpd:InitParameter>
-      <name>spiralcraft.instance.configURI
+      <name>spiralcraft.instance.rootURI
       </name>
-      <value>${spiralcraft.builder.dir}
+      <value>${spiralcraft.builder.dir}/..
       </value>
     </httpd:InitParameter>
     <httpd:InitParameter>
       <name>spiralcraft.instance.themeURI
       </name>
-      <value>webui/spiralcraft-webapp/themes/default
+      <value>context://code/spiralcraft-webapp/themes/default
       </value>
     </httpd:InitParameter>    
   </initParameters>
+  
   <debug>false
   </debug>
   
-  <filterMappings>
-    <httpd:FilterMapping>
-      <filterName>controller
-      </filterName>
-    
-      <URLPattern>*
-      </URLPattern>
-    </httpd:FilterMapping>
-  </filterMappings>
-  
-  <filters>
-    <httpd:FilterHolder>
-      <filterName>controller
-      </filterName>
-      
-      <filterInstance>
-        <autofilter:Controller>
-          <dataURI>../data/live/
-          </dataURI>
-          <configURI>../config/
-          </configURI>
-          <filesURI>../files/
-          </filesURI>
-        </autofilter:Controller>
-      </filterInstance>
-      
-    </httpd:FilterHolder>
-  </filters>
-  
-  <servletMappings>
-
-    <httpd:ServletMapping>
-       
-      <servletName>file
-      </servletName>
-        
-      <URLPatterns>/
-      </URLPatterns>
-        
-      <URLPatterns>/data/*
-      </URLPatterns>
-      
-      <URLPatterns>/dataAPI/*
-      </URLPatterns>
-    </httpd:ServletMapping>
-
-    <httpd:ServletMapping>
-       
-      <servletName>webui
-      </servletName>
-        
-      <URLPatterns>*.webui
-      </URLPatterns>
-        
-    </httpd:ServletMapping>
-
-  </servletMappings>
-                    
-  <servletHolders>
-                        
-    <httpd:ServletHolder>
-                         
-      <servletName>file
-      </servletName>
-         
-      <servletClass>spiralcraft.servlet.vfs.FileServlet
-      </servletClass>
-      
-      <initParameters>
-        <httpd:InitParameter>
-          <name>debugLevel
-          </name>
-          <value>INFO
-          </value>
-        </httpd:InitParameter>
-      </initParameters>
-                           
-    </httpd:ServletHolder>
-                        
-    <httpd:ServletHolder>
-            
-      <servletName>webui
-      </servletName>
-            
-      <servletClass>spiralcraft.servlet.webui.UIServlet
-      </servletClass>
-            
-    </httpd:ServletHolder>
-    
-  </servletHolders>
-  
+                      
   <errorPages>
     <httpd:ErrorPage>
       <errorCode>404
@@ -122,4 +34,4 @@
       </location>
     </httpd:ErrorPage>
   </errorPages>
-</httpd:MultiAliasHttpServiceContext>
+</base:Context>

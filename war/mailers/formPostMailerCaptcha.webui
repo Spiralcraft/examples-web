@@ -36,7 +36,7 @@
         <!-- / Standard form controls go here -->
 
         <script type="text/javascript"
-          src="http://api.recaptcha.net/challenge?k=000000000000000"/%>"
+          src="http://api.recaptcha.net/challenge?k=6LcQicMSAAAAAFpc2FF0YNRWRRVgI69HMCqgIqOa"
           >
         </script>
 
@@ -50,7 +50,7 @@
         /%>
         
         <!-- SMTP errors --> 
-        <%With x="[webuic:SMTP] getState().getErrors()"%>
+        <%With x="[webuic:SMTP].getState().getErrors()"%>
           <%If x=".!=null"%>
             <div class="error">
               <%Iterate%>

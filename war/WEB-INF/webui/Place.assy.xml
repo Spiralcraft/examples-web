@@ -1,0 +1,8 @@
+<base:Place
+  xmlns:base="context://package-base/"
+  xmlns:war-config="context://code/config/"
+  >
+  <stores>
+    <war-config:ExampleStore/>
+  </stores>
+</base:Place>

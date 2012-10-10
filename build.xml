@@ -27,9 +27,13 @@
   <target name="cleanData" depends="build-common.cleanData"
     description="reset data"
     >
+    <delete dir="data/spiralcraft-examples-webapp.store" failonerror="false"/>
+    <delete dir="data/spiralcraft-webapp.plugin" failonerror="false"/>
+    <delete file="data/place.status.xml" failonerror="false"/>
     <devtask 
       codebase="${project-dir}"
-      launchargs="--debug"
+      vmargs="-Dspiralcraft.code.location=war/WEB-INF/webui/"
+      launchargs="--debug "
       env="file:/${project-dir.unix}/init config/Generator"
     />
 

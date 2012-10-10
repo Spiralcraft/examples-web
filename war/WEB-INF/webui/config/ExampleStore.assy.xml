@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<data-xml:XmlStore
+  xmlns:data-xml="class:/spiralcraft/data/xml/"
+  xmlns:data="class:/spiralcraft/data/"
+  xmlns:example="class:/com/spiralcraft/example/"
+  >
+  <name>spiralcraft-examples-webapp
+  </name>
+  
+  
+  <schema dataURI="example:Example.schema.xml"/>
+  
+</data-xml:XmlStore>

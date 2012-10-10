@@ -45,10 +45,6 @@
       </type>
     </meta:Entity>
 
-    <meta:Entity>
-      <type><sec:Login.type/>
-      </type>
-    </meta:Entity>
   </entities>
   
 </meta:Schema>

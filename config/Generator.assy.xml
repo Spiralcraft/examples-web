@@ -5,12 +5,16 @@
   xmlns:dtest="class:/spiralcraft/data/test/"
   xmlns:test="class:/spiralcraft/test/"
   xmlns:dtask="class:/spiralcraft/data/task/"
+  xmlns:webui="context:/war/WEB-INF/webui/"
   >
+  
+  <placeContext>
+    <webui:Place/>
+  </placeContext>
   
   <services>
 
-    <config:FileSpace/>  
-    <config:Space/>
+    <config:FileSpace/> 
   </services>
   
   <chain>

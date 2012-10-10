@@ -27,6 +27,8 @@
           
           <!-- Standard Login -->
           <secspi:PasswordDataAuthModule>
+            <name>local
+            </name>
             <debug>true
             </debug>
           </secspi:PasswordDataAuthModule>
