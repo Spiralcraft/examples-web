@@ -1,14 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<smtp:SMTPClient
+<smtp:QueueConnector
   xmlns:smtp="class:/spiralcraft/net/smtp/"
   >
-
+  <debug>true
+  </debug>
   
-  <server>localhost
-  </server>
-  
-  <testMode>true
-  </testMode>
-  
-</smtp:SMTPClient>
+</smtp:QueueConnector>

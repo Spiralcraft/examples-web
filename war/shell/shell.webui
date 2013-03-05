@@ -1,0 +1,62 @@
+<%theme:page
+  tgns:theme="context://theme"
+  tgns:webuic="class:/spiralcraft/servlet/webui/components"
+  tgns:html="class:/spiralcraft/servlet/webui/components/html"
+  tgns:json="class:/spiralcraft/json/"
+  tgns:webui="class:/spiralcraft/servlet/webui/"
+  tgns:shell="class:/spiralcraft/shell/"
+  %>
+  <%webuic:Session
+    x='{ someText:="" }'
+    %>
+    <%shell:ShellService%>
+      <%html:Form%>
+        <div style="display:inline;">
+          <ul>
+          <%Iterate x="[shell:ShellService].context.prefixResolver.computeMappings().entrySet()"%>
+            <li><%=./%></li>
+          <%/Iterate%>
+          </ul>
+        </div>
+        <div style="display:inline;">
+          <%html:TextArea  x='[shell:ShellService].context.commandBuffer'/%>
+        </div>
+        <div style="display:inline;">
+          <%html:SubmitButton label="eval" onAction='[shell:ShellService].eval()'/%>
+        </div>
+        <div style="display:inline; width: 25em; float: right;">
+          <ul>
+          <%Iterate x="[shell:ShellService].context.history"%>
+            <li style="width: 10em;">
+              <%html:Link onAction="[shell:ShellService].context.commandBuffer=."%>
+                <%=./%>
+              <%/html:Link%>
+            </li>
+          <%/Iterate%>
+          </ul>
+        </div>
+        <div>
+          <%With x='[shell:ShellService].context'%>
+            <%If x='exception!=null'%>
+              <%=exception/%>
+              <ul>
+              <%Iterate x='exception.stackTrace'%>
+                <li><%=./%></li>
+              <%/Iterate%>      
+              </ul>
+              <%=exception.cause/%>
+              <ul>
+              <%Iterate x='exception.cause.stackTrace'%>
+                <li><%=./%></li>
+              <%/Iterate%>      
+              </ul>
+            <%Else/%>
+              <%=lastResult/%>
+            <%/If%>
+          <%/With%>
+        </div>
+      <%/html:Form%>
+    <%/shell:ShellService%>
+    
+  <%/webuic:Session%>
+<%/theme:page%>

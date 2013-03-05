@@ -1,0 +1,4 @@
+<project name="spiralcraft-examples-web-ant" basedir=".." default="cleanData">
+  <import file="../build.xml"/>
+
+</project>

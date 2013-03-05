@@ -15,14 +15,17 @@
         %>
         <%.peerJSTag%>
           <%html:PeerJSTag
-            dataJS='"{|[html:TextInput].registerPort("autocomplete")|}"'
-            onRegisterJS='$("#"+self.id).autocomplete({ source: self.data });'
+            onRegisterJS='$("#"+self.id).autocomplete(
+                                { source: function(jqterm,callback) 
+                                   { self.autocomplete.queryJSON(jqterm,callback); }
+                                }
+                          );'
             requiredScripts='/js/jquery-core/jquery.min.js'
             requiredScripts='/js/jquery-ui/jquery-ui.min.js'
           /%>
         <%/.peerJSTag%>
 
-        <%webuic:Port 
+        <%html:JSPort 
           id="autocomplete" 
           contentType="application/json"
           isolatePort="true"
@@ -32,33 +35,7 @@
             [.contains([webui:ServiceContext].query.getValue("term"))]
             .[*json:ToJson]
           /%>
-        <%/webuic:Port%>
-
-      <%/html:TextInput%>
-
-      <%html:TextInput 
-        x="otherText" 
-        %>
-        <%.peerJSTag%>
-          <%html:PeerJSTag
-            dataJS='"{|[html:TextInput].registerPort("autocomplete")|}"'
-            onRegisterJS='$("#"+self.id).autocomplete({ source: self.data });'
-            requiredScripts='/js/jquery-core/jquery.min.js'
-            requiredScripts='/js/jquery-ui/jquery-ui.min.js'
-          /%>
-        <%/.peerJSTag%>
-
-        <%webuic:Port 
-          id="autocomplete" 
-          contentType="application/json"
-          isolatePort="true"
-          %>
-          <%=
-            [{ "Mercury","Venus","Earth","Mars","Jupiter","Saturn","Uranus","Neptune","Pluto"}]
-            [.contains([webui:ServiceContext].query.getValue("term"))]
-            .[*json:ToJson]
-          /%>
-        <%/webuic:Port%>
+        <%/html:JSPort%>
 
       <%/html:TextInput%>
 

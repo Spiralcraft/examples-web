@@ -29,6 +29,7 @@
     >
     <delete dir="data/spiralcraft-examples-webapp.store" failonerror="false"/>
     <delete dir="data/spiralcraft-webapp.plugin" failonerror="false"/>
+    <delete dir="data/spiralcraft-net-smtp.store" failonerror="false"/>
     <delete file="data/place.status.xml" failonerror="false"/>
     <devtask 
       codebase="${project-dir}"

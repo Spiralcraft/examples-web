@@ -1,8 +1,24 @@
 <base:Place
   xmlns:base="context://package-base/"
   xmlns:war-config="context://code/config/"
+  xmlns:task="class:/spiralcraft/task/"
+  xmlns:config="context://config/"
+  xmlns:conf-base="context:/code/config/base/"
   >
   <stores>
     <war-config:ExampleStore/>
   </stores>
+  
+  <schedulers>
+    <task:TaskScheduler>
+      <period>5000
+      </period>
+      <scenario>
+        <war-config:SMTPForward/>
+      </scenario>
+    </task:TaskScheduler>
+  </schedulers>
+  
+  <exports>[*config:SMTPConnector]
+  </exports>
 </base:Place>

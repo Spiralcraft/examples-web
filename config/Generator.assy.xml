@@ -12,11 +12,12 @@
     <webui:Place/>
   </placeContext>
   
-  <services>
-
-    <config:FileSpace/> 
-  </services>
+  <codeURI>context:/war/WEB-INF/webui/
+  </codeURI>
   
+  <dataURI>context:/data/
+  </dataURI>
+
   <chain>
     <test:LoadGroup>
       <name>generate
