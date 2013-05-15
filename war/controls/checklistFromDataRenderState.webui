@@ -1,0 +1,36 @@
+<%@namespace
+  webuic="class:/spiralcraft/servlet/webui/components/"
+  html="class:/spiralcraft/servlet/webui/components/html/"
+  cw="context:/WEB-INF/webui/"
+  %> 
+ 
+  <%webuic:DataSessionComponent
+    typeX="[@cw:ContactEditSession].type"
+    %>
+    <%html:Form%>
+    
+    
+    
+      <%html:Checklist
+        x="[cw:ContactEditSession].selectedContactIdList"
+        source="[cw:ContactEditSession].allContacts"
+        %>
+        <%Iterate%>
+          <%html:ChecklistItem value=".id" renderStateX="false"%><%=.displayName/%>
+          <%/html:ChecklistItem%>
+          <br/>
+        <%/Iterate%>
+      <%/html:Checklist%>
+
+
+
+      <%html:SubmitButton
+        x="null"
+        label="submit"
+      /%>  
+        
+    <%/html:Form%>
+  
+  <%/webuic:DataSessionComponent%>
+  
+<%/@namespace%>

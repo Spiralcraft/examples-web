@@ -4,6 +4,7 @@
   servlet="class:/javax/servlet/http/"
   j="class:/java/lang/"
   html="class:/spiralcraft/servlet/webui/components/html/"
+  jsclient="context://code/spiralcraft-jsclient/"
   %> 
 <html>
   <head>
@@ -15,7 +16,7 @@
     </script>
     <script type="text/javascript" src="/js/spiralcraft-jsclient/spiralcraft-jquery.js">
     </script>
-    <%@include resource="context://code/spiralcraft-jsclient/spiralcraft-jsclient.tgl"/%>
+    <%jsclient:spiralcraft-jsclient/%>
   </head>
   <body>
   
