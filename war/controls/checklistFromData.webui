@@ -2,6 +2,8 @@
   webuic="class:/spiralcraft/servlet/webui/components/"
   html="class:/spiralcraft/servlet/webui/components/html/"
   cw="context:/WEB-INF/webui/"
+  dutil="class:/spiralcraft/data/util/"
+  example="class:/com/spiralcraft/example/"
   %> 
  
   <%webuic:DataSessionComponent
@@ -28,6 +30,19 @@
         x="null"
         label="submit"
       /%>  
+      
+        
+      <h2>Selected:</h2>
+      <%Iterate 
+        x='[cw:ContactEditSession].selectedContactIdList 
+            .[*dutil:RelationalMap{[@example:Contact].type,"id",null}]'
+          
+       
+        
+        %>
+        <%=.displayName/%>
+        <br>
+      <%/Iterate%>      
         
     <%/html:Form%>
   
