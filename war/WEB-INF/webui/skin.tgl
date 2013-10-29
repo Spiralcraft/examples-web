@@ -14,8 +14,7 @@
     </script>
     <script type="text/javascript" src="/js/spiralcraft-jsclient/spiralcraft.js">
     </script>
-    <script type="text/javascript" src="/js/spiralcraft-jsclient/spiralcraft-jquery.js">
-    </script>
+
     <%jsclient:spiralcraft-jsclient/%>
   </head>
   <body>

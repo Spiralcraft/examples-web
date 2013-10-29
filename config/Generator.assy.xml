@@ -6,17 +6,21 @@
   xmlns:test="class:/spiralcraft/test/"
   xmlns:dtask="class:/spiralcraft/data/task/"
   xmlns:webui="context:/war/WEB-INF/webui/"
+  xmlns:stask="class:/spiralcraft/servlet/task/"
   >
+
   
-  <placeContext>
-    <webui:Place/>
-  </placeContext>
-  
-  <codeURI>context:/war/WEB-INF/webui/
-  </codeURI>
-  
-  <dataURI>context:/data/
-  </dataURI>
+  <rootContext>
+    <stask:WebBatchContext>
+      <instanceRootURI>context:/
+      </instanceRootURI>
+
+      <rootPlaceURI>context://code/Place
+      </rootPlaceURI>
+    
+    </stask:WebBatchContext>
+  </rootContext>
+
 
   <chain>
     <test:LoadGroup>

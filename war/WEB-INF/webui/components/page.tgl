@@ -1,0 +1,17 @@
+<%@namespace
+  comp="context://code/components/"
+  html="context://code/components/html/"
+  task="class:/spiralcraft/task/"
+  servlet="class:/javax/servlet/http/"
+  j="class:/java/lang/"
+  html="class:/spiralcraft/servlet/webui/components/html/"
+  jsclient="context://code/spiralcraft-jsclient/"
+  %> 
+  <%html:Page%>
+    <%html:Script target="HEAD" src="/js/jquery-core/jquery.min.js"/%>
+    <%html:Script target="HEAD" src="/js/jquery-simplemodal/jquery.simplemodal.js"/%>
+    <%html:Script target="HEAD" src="/js/spiralcraft-jsclient/spiralcraft.js"/%>
+    <%jsclient:spiralcraft-jsclient/%>
+    <%@insert/%>
+  <%/html:Page%>
+<%/@namespace%>

@@ -1,4 +1,11 @@
 <%@include resource="context:/WEB-INF/webui/skin.tgl"%>
+  <div>
+    <h2>3rd Party Examples</h2>
+    <a href="3rdparty/stripepay/">Stripe Payments</a>
+  </div>
+
+  <div>
+    <h2>Dirs</h2>
   <%With x='[@vfs:Resolver].@getInstance().resolve("context:/").asContainer()'
     tgns:vfs="class:/spiralcraft/vfs/"
     tgns:fn="class:/spiralcraft/lang/functions/"
@@ -13,4 +20,5 @@
       <%/Iterate%>
     </table>
   <%/With%>
+  </div>
 <%/@include%>

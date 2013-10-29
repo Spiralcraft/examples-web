@@ -1,0 +1,14 @@
+<%@doclet
+  tgns:comp="context://code/components/"
+  tgns:html="context://code/components/html"
+  tgns:sp="context://code/spiralcraft-stripepay/"
+  %>
+  <%comp:page%>
+      <%sp:checkout 
+        amountX='1.99' 
+        nameX='"Buy Subscription"' 
+        image='/images/Spiralcraft-Logo.96x96.gif'
+        descriptionX='"Buy a one-year spiralcraft subscription"'
+      /%>
+  <%/comp:page%>
+<%/@doclet%>
