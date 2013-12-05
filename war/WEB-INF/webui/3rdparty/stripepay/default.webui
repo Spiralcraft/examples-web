@@ -2,6 +2,7 @@
   tgns:comp="context://code/components/"
   tgns:html="context://code/components/html"
   tgns:sp="context://code/spiralcraft-stripepay/"
+  tgns:spa="class:/spiralcraft/stripepay/"
   %>
   <%comp:page%>
       <%sp:checkout 
@@ -9,6 +10,7 @@
         nameX='"Buy Subscription"' 
         image='/images/Spiralcraft-Logo.96x96.gif'
         descriptionX='"Buy a one-year spiralcraft subscription"'
-      /%>
+        $onCapture='[#{ [@spa:Payment].@nil }]{ .@log("Override onCapture "+.)}'
+      /%> 
   <%/comp:page%>
 <%/@doclet%>

@@ -19,10 +19,7 @@
       
   <import file="../../build/build-spiralcraft-common.xml"/>
   
-  <target name="retrieve" depends="build-ivy.retrieve">
-    <devtask env="versions"/>
 
-  </target>
 
   <target name="cleanData" depends="build-common.cleanData"
     description="reset data"

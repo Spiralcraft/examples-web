@@ -26,4 +26,7 @@
   
   <exports>[*config:SMTPConnector]
   </exports>
+  
+  <exports>[*config:StripeClient]
+  </exports>
 </base:Place>
