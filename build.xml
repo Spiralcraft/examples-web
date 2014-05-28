@@ -1,5 +1,6 @@
 <project name="spiralcraft-examples-web" default="retrieve" basedir=".">
   
+  <property name="organization" value="spiralcraft"/>
   <property name="module" value="examples-web"/>
     
   <property name="data.clean.dir" location="data/clean/"/>
@@ -17,7 +18,9 @@
     <path location="${project-dir}"/>
   </pathconvert>
       
-  <import file="../../build/build-spiralcraft-common.xml"/>
+  <property name="depends.dir" location="../../repo"/>
+  
+  <import file="../../build/build-common.xml"/>
   
 
 

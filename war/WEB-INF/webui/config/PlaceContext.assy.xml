@@ -1,0 +1,22 @@
+<base:PlaceContext
+  xmlns:base="context://package-base/config/"
+  xmlns:war-config="context://code/config/"
+  xmlns:task="class:/spiralcraft/task/"
+  xmlns:config="context://config/"
+  xmlns:conf-base="context:/code/config/base/"
+  xmlns:sp="class:/spiralcraft/stripepay/"
+  xmlns:smtp="class:/spiralcraft/net/smtp/"
+  >
+  <stores>
+    <war-config:ExampleStore/>
+  </stores>
+  
+  <plugins>
+    <sp:Plugin/>
+  </plugins>
+  
+
+  
+  <exports>[*config:StripeClient].@log("Stripe client loaded:"+.)
+  </exports>
+</base:PlaceContext>
