@@ -122,6 +122,17 @@
       </type>
       
     </meta:Field>   
+    <meta:RelativeField>
+        
+      <name>tasks
+      </name>
+        
+      <type>
+        <example:ContactTask.list.type/>
+      </type>
+      <referencedFieldList>contactId
+      </referencedFieldList>
+    </meta:RelativeField>   
   </fields>
       
   <keys>

@@ -2,15 +2,15 @@
 
 <example:Contact.list xmlns:example="class:/com/spiralcraft/example/">
   <example:Contact>
-    <displayName>1</displayName>
+    <displayName>Ace Autonomous</displayName>
     <id>90</id>
   </example:Contact>
   <example:Contact>
-    <displayName>2</displayName>
+    <displayName>Bob Bar</displayName>
     <id>91</id>
   </example:Contact>
   <example:Contact>
-    <displayName>3</displayName>
+    <displayName>Cindy Computational</displayName>
     <id>92</id>
   </example:Contact>
 </example:Contact.list>

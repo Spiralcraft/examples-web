@@ -29,4 +29,5 @@
   <repo-inst org="jquery" module="core" rev="1.8.3"/>
   <repo-inst org="jquery" module="simplemodal" rev="[1.4.1,)"/>
   <repo-inst org="jquery" module="ui" rev="[1.8.19,)"/>
+  <repo-inst org="shvetsgroup" module="jquery-multisortable" rev="[0.1.3,)"/>
 </project>

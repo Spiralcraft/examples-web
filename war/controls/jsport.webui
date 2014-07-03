@@ -1,5 +1,5 @@
 <%theme:page
-  tgns:theme="context://theme"
+  tgns:theme="context://theme/"
   tgns:webuic="class:/spiralcraft/servlet/webui/components"
   tgns:html="class:/spiralcraft/servlet/webui/components/html"
   tgns:json="class:/spiralcraft/json/"

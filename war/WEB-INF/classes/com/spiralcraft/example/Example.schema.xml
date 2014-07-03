@@ -45,6 +45,15 @@
       </type>
     </meta:Entity>
 
+    <meta:Entity>
+      <type><example:Task.type/>
+      </type>
+    </meta:Entity>
+
+    <meta:Entity>
+      <type><example:ContactTask.type/>
+      </type>
+    </meta:Entity>
   </entities>
   
 </meta:Schema>
