@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<meta:Type
+  xmlns:meta="class:/spiralcraft/data/types/meta/"
+  xmlns:example="class:/com/spiralcraft/example"
+  xmlns:j="class:/java/lang/"
+  >
+ 
+
+  <fields>
+    <meta:Field>
+
+      <name>contactId
+      </name>
+
+      <type><Integer.type/>
+      </type>
+          
+    </meta:Field>
+
+    <meta:Field>
+      
+      <name>taskId
+      </name>
+      
+      <type>
+        <LSID.type/>
+      </type>
+
+    </meta:Field>
+
+    <meta:RelativeField>
+      <name>task
+      </name>
+      <type>
+         <example:Task.type/>
+      </type>
+      <fieldList>taskId
+      </fieldList>
+    </meta:RelativeField>
+    
+    <meta:Field>
+      
+      <name>order
+      </name>
+      
+      <type>
+        <Integer.type/>
+      </type>
+
+    </meta:Field>
+  </fields>
+      
+  <keys>
+    <meta:Key>
+
+      <fieldList>contactId,taskId
+      </fieldList>
+                
+      <primary>true
+      </primary>
+                
+    </meta:Key>
+
+    <meta:Key>
+
+      <fieldList>contactId
+      </fieldList>
+                
+    </meta:Key>
+
+  </keys>
+
+</meta:Type>

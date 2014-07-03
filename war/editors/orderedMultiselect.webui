@@ -1,0 +1,106 @@
+<%@doclet
+  tgns:c="context://code/components/"
+  tgns:h="context://code/components/html/"
+  tgns:dt="class:/spiralcraft/data/task/"
+  tgns:fn="class:/spiralcraft/lang/functions"
+  tgns:j="class:/java/lang/"
+  tgns:example="class:/com/spiralcraft/example/"
+  %>
+  <%c:page%>
+    <%c:RenderTo target="[h:Page].head"%>
+      <script type="text/javascript">
+        function moveUp(selectId) {
+          var selectList = document.getElementById(selectId);
+          var selectOptions = selectList.getElementsByTagName('option');
+          for (var i = 1; i < selectOptions.length; i++) {
+            var opt = selectOptions[i];
+            if (opt.selected) {
+              selectList.removeChild(opt);
+              selectList.insertBefore(opt, selectOptions[i - 1]);
+            }
+          }
+        }
+         
+        function moveDown(selectId) {
+          var selectList = document.getElementById(selectId);
+          var selectOptions = selectList.getElementsByTagName('option');
+          for (var i = selectOptions.length - 2; i >= 0; i--) {
+            var opt = selectOptions[i];
+            if (opt.selected) {
+               var nextOpt = selectOptions[i + 1];
+               opt = selectList.removeChild(opt);
+               nextOpt = selectList.replaceChild(opt, nextOpt);
+               selectList.insertBefore(nextOpt, opt);
+            }
+          }
+        }
+      </script>    
+    <%/c:RenderTo%>
+    
+    <%h:Script target="HEAD" src="/js/shvetsgroup-jquery-multisortable/jquery.multisortable.js"/%>
+    <%With x='
+      { [#session] 
+        selectedContactId:[@j:Integer] 
+        ,selectedContact:=
+          [*dt:Fetch
+            { [@example:Contact]
+              , `.id==[session].selectedContactId`
+            }
+          ]
+      }
+      '
+      holdWhileX="true"
+      %>    
+      <%h:Form%>
+        <%h:Select
+          x='.selectedContactId'
+          source='[*dt:Fetch{[@example:Contact.list]}].()
+                    .[*fn:Sort{`.displayName`,false}]
+                  '
+          tag.onchange="this.form.submit();"
+          %>
+          <%Iterate%>
+            <%h:Option value=".id"%><%=displayName/%> <%If x='!.tags[.tagName=="flag"].@empty'%>***<%/If%>
+            <%/h:Option%>
+          <%/Iterate%>
+          
+        <%/h:Select%>
+      <%/h:Form%>
+
+      <%With x="[session].selectedContact()"%>
+      
+        <%h:Form tag.clazz="data-entry"%>
+          <h2>Name: <%=displayName/%></h2>
+          <%h:SelectionEditor selectionKey="taskId" x=".tasks" positionX=".order"%>
+            <%.newAssignments%>.contactId=[example:Contact].id
+            <%/.newAssignments%>
+            <%!%>
+            <%h:Checklist source="[*dt:Fetch{[@example:Task.list]}].()"%>
+              <%Iterate%>
+                <%h:ChecklistItem value="id"/%><%=.description/%><br/>
+              <%/Iterate%>
+            <%/h:Checklist%>
+            <%/!%>
+            <%h:FormField%>
+              <%h:Select source="[*dt:Fetch{[@example:Task.list]}].()" multi="true"%>
+                <%Iterate x="@[[h:Select].isSelected(.id)].[*fn:Sort{`[example:ContactTask.list][.taskId==..id].@top.order`,false}]"%>
+                  <%h:Option value="id"%><%=.description/%> (<%=[example:ContactTask.list][.taskId==..id].@top.order/%>)<%/h:Option%>
+                <%/Iterate%>
+                <option disabled="disabled">--------</option>
+                <%Iterate x="@[![h:Select].isSelected(.id)]"%>
+                  <%h:Option value="id"%><%=.description/%><%/h:Option%>
+                <%/Iterate%>
+              <%/h:Select%>
+              <br>
+              <span class="button" onclick="moveUp('<%=[h:FormField].inputId/%>')">Move Up</span>
+              <span class="button" onclick="moveDown('<%=[h:FormField].inputId/%>')">Move Down</span>
+            <%/h:FormField%>
+          <%/h:SelectionEditor%>
+          <div class="sc-form-button-bar">
+            <%h:Button onAction="[h:Form].save()"%>Save<%/h:Button%>
+          </div>
+        <%/h:Form%>
+      <%/With%>
+    <%/With%>
+  <%/c:page%>
+<%/@doclet%>

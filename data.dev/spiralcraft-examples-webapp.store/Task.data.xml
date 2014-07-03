@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<example:Task.list xmlns:example="class:/com/spiralcraft/example/">
+  <example:Task>
+    <id>1
+    </id>
+    <description>Wash Dishes
+    </description>
+  </example:Task>
+  <example:Task>
+    <id>2
+    </id>
+    <description>Fix Server
+    </description>
+  </example:Task>
+  <example:Task>
+    <id>3
+    </id>
+    <description>Upgrade Database
+    </description>
+  </example:Task>
+  <example:Task>
+    <id>4
+    </id>
+    <description>Walk Dog
+    </description>
+  </example:Task>
+  <example:Task>
+    <id>5
+    </id>
+    <description>Feed Cat
+    </description>
+  </example:Task>
+  <example:Task>
+    <id>6
+    </id>
+    <description>Save Universe
+    </description>
+  </example:Task>
+  <example:Task>
+    <id>7
+    </id>
+    <description>Sleep
+    </description>
+  </example:Task>
+
+</example:Task.list>
