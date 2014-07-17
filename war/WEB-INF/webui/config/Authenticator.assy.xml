@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="Cp1252"?>
+
+<base:Authenticator
+  xmlns:base="context://code/spiralcraft-webapp/config/"
+  xmlns:sa="class:/spiralcraft/servlet/auth/"
+  >
+  <authModules><sa:AuthModule/>
+  </authModules>
+</base:Authenticator>

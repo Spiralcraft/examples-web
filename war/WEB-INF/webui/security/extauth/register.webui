@@ -1,0 +1,34 @@
+<%@doclet
+  tgns:t="context://theme/"
+  tgns:c="context://code/components/"
+  tgns:j="class:/java/lang/"
+  tgns:seca="class:/spiralcraft/security/auth/"
+  tgns:sec="class:/spiralcraft/security/"
+  tgns:sa="class:/spiralcraft/servlet/auth/"
+  tgns:webui="class:/spiralcraft/servlet/webui/"
+  tgns:su="class:/spiralcraft/util/"
+  %>
+  <%t:dialog-page
+    dialogTitle="External Auth Landing"
+    %>
+    
+    <%c:RequestData x="[#params] { tempCode:[@j:String] }"%>
+      Temporary Code: <%=[params].tempCode/%><br/>
+      <%OnPrepare 
+        x='@{ [sa:Filter].applyCredentials("example.system",tempCode.hashCode().toString())
+            , [@sec:Login].@register
+                ([seca:AuthSession].digestFunction
+                ,tempCode.hashCode().toString()
+                ,[@su:RandomUtil].@generateString(20)
+                ).login()
+            , [seca:AuthSession].associateLogin("spiralcraft.servlet.auth")
+            , [seca:AuthSession].authenticate()
+            , [seca:AuthSession].authenticated
+                ?[webui:ServiceContext].redirect("status")
+                :[webui:ServiceContext].redirect("fail")
+            }
+          '
+      /%>
+    <%/c:RequestData%>
+  <%/t:dialog-page%>
+<%/@doclet%>

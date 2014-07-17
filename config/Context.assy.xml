@@ -17,7 +17,7 @@
     <httpd:InitParameter>
       <name>spiralcraft.instance.themeURI
       </name>
-      <value>context://code/spiralcraft-webapp/themes/default/
+      <value>context://code/spiralcraft-webapp/themes/standard/
       </value>
     </httpd:InitParameter>    
   </initParameters>

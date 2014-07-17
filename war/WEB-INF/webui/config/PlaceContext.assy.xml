@@ -3,12 +3,16 @@
   xmlns:war-config="context://code/config/"
   xmlns:task="class:/spiralcraft/task/"
   xmlns:config="context://config/"
-  xmlns:conf-base="context:/code/config/base/"
+  xmlns:conf-base="context://code/config/base/"
   xmlns:sp="class:/spiralcraft/stripepay/"
   xmlns:smtp="class:/spiralcraft/net/smtp/"
+  xmlns:sa="class:/spiralcraft/servlet/auth/"
   >
   <stores>
     <war-config:ExampleStore/>
+    <conf-base:SqlStore>
+      <schema dataURI="sa:Auth.schema.xml"/>
+    </conf-base:SqlStore>
   </stores>
   
   <plugins>

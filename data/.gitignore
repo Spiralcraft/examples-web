@@ -2,3 +2,4 @@ place.status.xml
 *.plugin
 *.store
 spiralcraft-webapp-sysadmin.place
+/spiralcraft-webapp-system.place

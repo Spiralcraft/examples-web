@@ -1,0 +1,10 @@
+<base:PathContext
+  xmlns:base="context://package-base/"
+  xmlns:wconf="context://code/config/"
+  xmlns:sa="class:/spiralcraft/servlet/auth/"
+  >
+  <preFilters>
+    <sa:Filter/>
+  </preFilters>
+
+</base:PathContext>

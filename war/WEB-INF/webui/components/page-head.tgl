@@ -1,0 +1,8 @@
+<%@doclet
+  tgns:html="context://code/components/html/"
+  tgns:jsclient="context://code/spiralcraft-jsclient/"
+  %> 
+
+  <%html:Script src="/js/jquery-core/jquery.min.js"/%>
+  <%html:Script src="/js/jquery-simplemodal/jquery.simplemodal.js"/%>
+<%/@doclet%>
