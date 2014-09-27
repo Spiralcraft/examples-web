@@ -1,12 +1,15 @@
-<%With x="[http:HttpServletRequest]"
+<%t:activity-page
+  tgns:t="context://theme/"
+  %>
+  <%With x="[http:HttpServletRequest]"
   tgns:http="class:/javax/servlet/http/"
   %>
   <html>
     <head>
-      <title><%=.getAttribute("javax.servlet.error.status_code")/%></title>
+      <title>OOPS! <%=.getAttribute("javax.servlet.error.status_code")/%></title>
     </head>
     <body>
-      <h2><%=.getAttribute("javax.servlet.error.status_code")/%></h2>
+      <h2>OOPS! <%=.getAttribute("javax.servlet.error.status_code")/%></h2>
       
       The specified location 
         <b><%=.getAttribute("javax.servlet.error.request_uri")/%></b>
@@ -14,3 +17,4 @@
     </body>
   </html>
 <%/With%>
+<%/t:activity-page%>

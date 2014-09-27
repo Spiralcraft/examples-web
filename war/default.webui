@@ -3,9 +3,33 @@
   <%t:activity-page%>
     <div>
       <h2>3rd Party Examples</h2>
-      <a href="3rdparty/stripepay/">Stripe Payments</a>
+      <ul>
+        <li>
+          <a href="3rdparty/stripepay/">Stripe Payments</a>
+        </li>
+      </ul>
     </div>
   
+    <div>
+      <h2>Error testing</h2>
+      <ul>
+        <li><a href="doesntexist">Test 404 - Not Found Custom Error</a>
+        </li>
+        <li><a href="fails/compile-fail">Test 501 - Page Compilation Failure</a>
+        </li>
+      <ul>
+    </div>
+    
+    <div>
+      <h2>Theme</h2>
+      <ul>
+        <li><a href="theme-test/activity-page">Activity Page</a>
+        </li>
+        <li><a href="theme-test/dialog-page">Dialog Page</a>
+        </li>
+      <ul>
+    </div>
+    
     <div>
       <h2>Dirs</h2>
     <%With x='[@vfs:Resolver].@getInstance().resolve("context:/").asContainer()'

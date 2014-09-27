@@ -3,6 +3,7 @@
     
   <repo-inst org="spiralcraft" module="admin" rev="[0.4.17-dev,0.4.18-dev["/>
   <repo-inst org="spiralcraft" module="archetype" rev="[0.4.17-dev,0.4.18-dev["/>
+  <repo-inst org="spiralcraft" module="biz" rev="[0.4.17-dev,0.4.18-dev["/>
   <repo-inst org="spiralcraft" module="core" rev="[0.4.17-dev,0.4.18-dev["/>
   <repo-inst org="spiralcraft" module="gui" rev="[0.4.17-dev,0.4.18-dev["/>
   <repo-inst org="spiralcraft" module="jsclient" rev="[0.4.17-dev,0.4.18-dev["/>
@@ -13,6 +14,7 @@
   <repo-inst org="spiralcraft" module="servlet" rev="[0.4.17-dev,0.4.18-dev["/>
   <repo-inst org="spiralcraft" module="shell" rev="[0.4.17-dev,0.4.18-dev["/>
   <repo-inst org="spiralcraft" module="sql" rev="[0.4.17-dev,0.4.18-dev["/>
+  <repo-inst org="spiralcraft" module="stripepay" rev="[0.4.17-dev,0.4.18-dev["/>
   <repo-inst org="spiralcraft" module="textgen" rev="[0.4.17-dev,0.4.18-dev["/>
 
   <repo-inst org="java" module="servlet-api" rev="2.4"/>
@@ -30,4 +32,7 @@
   <repo-inst org="jquery" module="simplemodal" rev="[1.4.1,)"/>
   <repo-inst org="jquery" module="ui" rev="[1.8.19,)"/>
   <repo-inst org="shvetsgroup" module="jquery-multisortable" rev="[0.1.3,)"/>
+  <repo-inst org="com.stripe" module="stripe-java" rev="[1.18.0,)"/>
+  <repo-inst org="com.google.code.gson" module="gson" rev="[2.2.4,2.3["/>
+  
 </project>

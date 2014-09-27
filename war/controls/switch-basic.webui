@@ -1,0 +1,31 @@
+<%@doclet
+  tgns:c="context://code/components/"
+  tgns:h="context://code/components/html/"
+  tgns:dt="class:/spiralcraft/data/task/"
+  tgns:fn="class:/spiralcraft/lang/functions"
+  tgns:j="class:/java/lang/"
+  tgns:example="class:/com/spiralcraft/example/"
+  tgns:t="context://theme/"
+  %>
+  <%t:activity-page%>
+    <%c:Session x="{ value:[@j:String] }"%>
+      <%h:Form%>
+        <div>
+          <%h:FormField%>
+            <%h:Label%>Value<%/h:Label%>
+            <%h:TextInput x="value"/%>
+          <%/h:FormField%>
+          <%h:Button onAction="null"%>Update<%/h:Button%>
+        </div>
+        <div>
+          <%c:Switch x="value"%>
+            <%h:Div id="1"%>One<%/h:Div%>
+            <%h:Div id="2"%>Two<%/h:Div%>
+            <%h:Div id="3"%>Three<%/h:Div%>
+          <%/c:Switch%>
+        </div>
+      <%/h:Form%>
+    
+    <%/c:Session%>
+  <%/t:activity-page%>
+<%/@doclet%>

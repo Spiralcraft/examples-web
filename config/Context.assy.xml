@@ -25,9 +25,7 @@
       </name>
       <value>true
       </value>
-    </httpd:InitParameter>   
-   
-
+    </httpd:InitParameter>    
   </initParameters>
   
   <debug>false
