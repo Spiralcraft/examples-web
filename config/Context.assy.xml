@@ -20,6 +20,12 @@
       <value>context://code/spiralcraft-webapp/themes/standard/
       </value>
     </httpd:InitParameter>    
+    <httpd:InitParameter>
+      <name>spiralcraft.servlet.showExceptions
+      </name>
+      <value>true
+      </value>
+    </httpd:InitParameter>    
   </initParameters>
   
   <debug>false
