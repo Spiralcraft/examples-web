@@ -1,0 +1,21 @@
+<%t:activity-page
+  tgns:t="context://theme/"
+  activityClass="error-activity error-500-activity"
+  %>
+<%With x="[http:HttpServletRequest]"
+  tgns:http="class:/javax/servlet/http/"
+  tgns:swa="class:/spiralcraft/webapp/meta/"
+  %>
+  <html>
+    <head>
+      <title>OOPS! Something didn't work as planned</title>
+    </head>
+    <body>
+      <h2>OOPS! Something didn't work as planned</h2>
+      
+      Our experts will figure it out for you.
+    </body>
+  </html>
+<%/With%>
+<%/t:activity-page%>
+

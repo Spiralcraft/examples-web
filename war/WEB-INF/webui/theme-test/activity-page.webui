@@ -1,0 +1,5 @@
+<%@doclet
+  tgns:t="context://theme/"%>
+  <%t:activity-page%>This is the content inside the the activity page
+  <%/t:activity-page%>
+<%/@doclet%>
