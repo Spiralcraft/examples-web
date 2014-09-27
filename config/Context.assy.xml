@@ -19,7 +19,15 @@
       </name>
       <value>context://code/spiralcraft-webapp/themes/standard/
       </value>
-    </httpd:InitParameter>    
+    </httpd:InitParameter>   
+    <httpd:InitParameter>
+      <name>spiralcraft.servlet.showExceptions
+      </name>
+      <value>true
+      </value>
+    </httpd:InitParameter>   
+   
+
   </initParameters>
   
   <debug>false
@@ -30,7 +38,13 @@
     <httpd:ErrorPage>
       <errorCode>404
       </errorCode>
-      <location>/WEB-INF/webui/errors/404.webui
+      <location>/errors/404
+      </location>
+    </httpd:ErrorPage>
+    <httpd:ErrorPage>
+      <errorCode>500
+      </errorCode>
+      <location>/errors/500
       </location>
     </httpd:ErrorPage>
   </errorPages>
