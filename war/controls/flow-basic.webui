@@ -1,0 +1,147 @@
+<%@doclet
+  tgns:c="context://code/components/"
+  tgns:h="context://code/components/html/"
+  tgns:dt="class:/spiralcraft/data/task/"
+  tgns:fn="class:/spiralcraft/lang/functions"
+  tgns:j="class:/java/lang/"
+  tgns:example="class:/com/spiralcraft/example/"
+  tgns:t="context://theme/"
+  tgns:fsm="class:/spiralcraft/fsm/"
+  %>
+  <%t:activity-page%>
+    <%c:Flow model='{ value1:[@j:String]
+                      ,value2:[@j:String]
+                      ,value3:[@j:String]
+                    }'
+      stateMachine.beforeTransition='@log("GLOBAL.beforeTransition Current State: "+[c:Flow].flowState.name)'
+      stateMachine.afterTransition='@log("GLOBAL.afterTransition Current State: "+[c:Flow].flowState.name)'
+      stateMachine.beforeStateChange='@log("GLOBAL.beforeStateChange Current State: "+[c:Flow].flowState.name)'
+      stateMachine.afterStateChange='@log("GLOBAL.afterStateChange Current State: "+[c:Flow].flowState.name)'
+      %>
+      <%.states%>
+        <%fsm:State name="one"
+          onEnter='@log([fsm:State].name+".onEnter Current State: "+[c:Flow].flowState.name)'
+          onExit='@log([fsm:State].name+".onExit Current State: "+[c:Flow].flowState.name)'
+          beforeTransition='@log([fsm:State].name+".beforeTransition Current State: "+[c:Flow].flowState.name)'
+          afterTransition='@log([fsm:State].name+".afterTransition Current State: "+[c:Flow].flowState.name)'
+          %>
+          <%.transitions%>
+            <%fsm:Transition name="next" next="two"
+              onInvoke='@log([fsm:State].name+"->"+[fsm:Transition].name+".onInvoke Current State: "+[c:Flow].flowState.name)'
+              onComplete='@log([fsm:State].name+"->"+[fsm:Transition].name+".onComplete Current State: "+[c:Flow].flowState.name)'
+            /%>
+          <%/.transitions%>
+        <%/fsm:State%>
+
+        <%fsm:State name="two"
+          onEnter='@log([fsm:State].name+".onEnter Current State: "+[c:Flow].flowState.name)'
+          onExit='@log([fsm:State].name+".onExit Current State: "+[c:Flow].flowState.name)'
+          beforeTransition='@log([fsm:State].name+".beforeTransition Current State: "+[c:Flow].flowState.name)'
+          afterTransition='@log([fsm:State].name+".afterTransition Current State: "+[c:Flow].flowState.name)'
+          %>
+          <%.transitions%>
+            <%fsm:Transition name="next" next="three"
+              onInvoke='@log([fsm:State].name+"->"+[fsm:Transition].name+".onInvoke Current State: "+[c:Flow].flowState.name)'
+              onComplete='@log([fsm:State].name+"->"+[fsm:Transition].name+".onComplete Current State: "+[c:Flow].flowState.name)'
+            /%>
+            <%fsm:Transition name="back" next="one"
+              onInvoke='@log([fsm:State].name+"->"+[fsm:Transition].name+".onInvoke Current State: "+[c:Flow].flowState.name)'
+              onComplete='@log([fsm:State].name+"->"+[fsm:Transition].name+".onComplete Current State: "+[c:Flow].flowState.name)'
+            /%>
+          <%/.transitions%>
+        <%/fsm:State%>
+
+        <%fsm:State name="three"
+          onEnter='@log([fsm:State].name+".onEnter Current State: "+[c:Flow].flowState.name)'
+          onExit='@log([fsm:State].name+".onExit Current State: "+[c:Flow].flowState.name)'
+          beforeTransition='@log([fsm:State].name+".beforeTransition Current State: "+[c:Flow].flowState.name)'
+          afterTransition='@log([fsm:State].name+".afterTransition Current State: "+[c:Flow].flowState.name)'
+          %>
+          <%.transitions%>
+            <%fsm:Transition name="next" next="done"
+              onInvoke='@log([fsm:State].name+"->"+[fsm:Transition].name+".onInvoke Current State: "+[c:Flow].flowState.name)'
+              onComplete='@log([fsm:State].name+"->"+[fsm:Transition].name+".onComplete Current State: "+[c:Flow].flowState.name)'
+            /%>
+            <%fsm:Transition name="back" next="two"
+              onInvoke='@log([fsm:State].name+"->"+[fsm:Transition].name+".onInvoke Current State: "+[c:Flow].flowState.name)'
+              onComplete='@log([fsm:State].name+"->"+[fsm:Transition].name+".onComplete Current State: "+[c:Flow].flowState.name)'
+            /%>
+          <%/.transitions%>
+        <%/fsm:State%>
+
+        <%fsm:State name="done"
+          onEnter='@log([fsm:State].name+".onEnter Current State: "+[c:Flow].flowState.name)'
+          onExit='@log([fsm:State].name+".onExit Current State: "+[c:Flow].flowState.name)'
+          beforeTransition='@log([fsm:State].name+".beforeTransition Current State: "+[c:Flow].flowState.name)'
+          afterTransition='@log([fsm:State].name+".afterTransition Current State: "+[c:Flow].flowState.name)'
+          %>
+          <%.transitions%>
+            <%fsm:Transition name="restart" next="one"
+              onInvoke='@log([fsm:State].name+"->"+[fsm:Transition].name+".onInvoke Current State: "+[c:Flow].flowState.name)'
+              onComplete='@log([fsm:State].name+"->"+[fsm:Transition].name+".onComplete Current State: "+[c:Flow].flowState.name)'
+            /%>
+            <%fsm:Transition name="back" next="three"
+              onInvoke='@log([fsm:State].name+"->"+[fsm:Transition].name+".onInvoke Current State: "+[c:Flow].flowState.name)'
+              onComplete='@log([fsm:State].name+"->"+[fsm:Transition].name+".onComplete Current State: "+[c:Flow].flowState.name)'
+            /%>
+          <%/.transitions%>
+        <%/fsm:State%>
+
+      <%/.states%>
+      
+      <div>
+        Value 1: <%=value1/%>  |  Value 2: <%=value2/%>  |  Value 3: <%=value3/%>
+      </div>
+      <%c:Switch x="[c:Flow].flowState.name"%>
+        <%h:Form id="one"%>
+          <div>
+            <%h:FormField%>
+              <%h:Label%>Value 1<%/h:Label%>
+              <%h:TextInput x="value1"/%>
+            <%/h:FormField%>
+            <%h:Button onAction='[c:Flow].transition("next")'%>Next<%/h:Button%>
+          </div>
+        <%/h:Form%>
+        <%h:Form id="two"%>
+          <div>
+            <%h:FormField%>
+              <%h:Label%>Value 2<%/h:Label%>
+              <%h:TextInput x="value2"/%>
+            <%/h:FormField%>
+            <%h:Button onAction='[c:Flow].transition("back")'%>Back<%/h:Button%>
+            <%h:Button onAction='[c:Flow].transition("next")'%>Next<%/h:Button%>
+          </div>
+        <%/h:Form%>
+        <%h:Form id="three"%>
+          <div>
+            <%h:FormField%>
+              <%h:Label%>Value 3<%/h:Label%>
+              <%h:TextInput x="value3"/%>
+            <%/h:FormField%>
+            <%h:Button onAction='[c:Flow].transition("back")'%>Back<%/h:Button%>
+            <%h:Button onAction='[c:Flow].transition("next")'%>Done<%/h:Button%>
+          </div>
+        <%/h:Form%>
+        <%h:Form id="done"%>
+          <div>
+            <%h:FormField%>
+              <%h:Label%>Value 1<%/h:Label%>
+              <%=value1/%>
+            <%/h:FormField%>
+            <%h:FormField%>
+              <%h:Label%>Value 2<%/h:Label%>
+              <%=value2/%>
+            <%/h:FormField%>
+            <%h:FormField%>
+              <%h:Label%>Value 3<%/h:Label%>
+              <%=value3/%>
+            <%/h:FormField%>
+            <%h:Button onAction='[c:Flow].transition("back")'%>Back<%/h:Button%>
+            <%h:Button onAction='[c:Flow].transition("restart")'%>Restart<%/h:Button%>
+          </div>
+        <%/h:Form%>
+      <%/c:Switch%>
+    
+    <%/c:Flow%>
+  <%/t:activity-page%>
+<%/@doclet%>
