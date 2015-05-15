@@ -1,13 +1,43 @@
-<%@namespace
-  webuic="class:/spiralcraft/servlet/webui/components/"
-  html="class:/spiralcraft/servlet/webui/components/html/"
-  cw="context:/WEB-INF/webui/"
-  jnet="class:/java/net/"
-  skin="context:/skinning/"
-  %> 
-   
-  <%skin:skin%>
+<%@doclet
+  tgns:c="context://code/components/"
+  tgns:h="context://code/components/html/"
+  tgns:dt="class:/spiralcraft/data/task/"
+  tgns:fn="class:/spiralcraft/lang/functions"
+  tgns:j="class:/java/lang/"
+  tgns:example="class:/com/spiralcraft/example/"
+  tgns:t="context://theme/"
+  tgns:jnet="class:/java/net/"
+  tgns:r="context://code/components/rpc/"
+ 
+  %>
+  <%t:activity-page%>
   
+    <%$box export="true"%>
+      <div style="border:2px solid;padding:5px;margin:5px">
+        <%@insert%>
+          // put box contents here
+        <%/@insert%>
+      </div>
+    <%/$box%>
+      
+    <%$field export="true" imports="caption,actions,assistText" %>
+      <!-- field -->
+      <div class="field">
+         <%caption/%>: <%@insert/%> <%actions/%>
+         <p><%assistText/%></p><br/></br>
+      </div> 
+      <!-- /field -->
+    <%/$field%>
+    
+    <%$controlSkin export="true" tgns:webui="class:/spiralcraft/servlet/webui/"%>
+      <div class="control">
+        <%@insert/%>
+        <%If x="[webui:Control].state.errorState"%>
+          <div class="error"><%=[webui:Control].state.errors/%></div>
+        <%/If%>
+      </div>
+    <%/$controlSkin%>
+    
   
     <%$uploader imports="caption,assistText,dir"%>
       <%With x="{ file:[@jnet:URI] }" holdWhileX="true"%>
@@ -17,7 +47,7 @@
           <%$assistText%><%assistText/%><%/$assistText%>
           <%@insert/%>
           <%$actions%>
-            <%html:SubmitButton
+            <%h:SubmitButton
               x="null"
               label="upload"
             /%>
@@ -32,10 +62,10 @@
         
     <%/$uploader%>
   
-    <%html:Form%>
+    <%h:Form%>
 
-      <%formHeader%>File upload
-      <%/formHeader%>
+      <h2>File upload
+      </h2>
       
 
     
@@ -47,7 +77,7 @@
           is not secure.
         <%/$assistText%>
         
-        <%html:FileInput
+        <%h:FileInput
           x="file"
         /%>
       <%/uploader%>
@@ -64,7 +94,7 @@
         
         <%$dir%>/uploads<%/$dir%>
         
-        <%html:FileInput
+        <%h:FileInput
           x="file"
           contextRelativeRoot='context:/uploads/'
           dirUriX='[@jnet:URI].("testDir1/testDir2")'
@@ -83,7 +113,7 @@
         
         <%$dir%>/uploads<%/$dir%>
         
-        <%html:FileInput
+        <%h:FileInput
           x="file"
           contextRelativeRoot='context:/uploads/'
           dirUriX='[@jnet:URI].("testDir1/missing")'
@@ -103,7 +133,7 @@
         
         <%$dir%>/uploads<%/$dir%>
         
-        <%html:FileInput
+        <%h:FileInput
           x="file"
           contextRelativeRoot='context:/uploads/'
           filename="uploaded"
@@ -121,7 +151,7 @@
         
         <%$dir%>/uploads<%/$dir%>
         
-        <%html:FileInput
+        <%h:FileInput
           x="file"
           contextRelativeRoot='context:/uploads/'
           filename="uploaded"
@@ -139,15 +169,45 @@
         
         <%$dir%>/uploads<%/$dir%>
         
-        <%html:FileInput
+        <%h:FileInput
           x="file"
           contextRelativeRoot='context:/uploads/'
           maxSize="16384"
         /%>
       <%/uploader%>        
-    <%/html:Form%>
+    <%/h:Form%>
   
+    <a href="javascript: function dd() { return false;}" onClick="$SC('ajax-file-input').element().click(); return false;">Ajax file upload</a>
+    
+    <form>
+      <input name="file" id="ajax-file-input" type="file" onChange="upload(form,files)"/>
+    </form>
+    
+    <%h:Div%>
   
-  <%/skin:skin%>
+      <%h:Script target="HEAD"%>
+        function upload(form,files)
+        {
+          callback=new function() { alert("Done"); };
+          formData=new FormData();
+          formData.append("file",files[0]);
+          $SC("<%=[h:Div].CSID/%>").postback.postForm(formData);
+          return false;
+        }
+      <%/h:Script%>
+      <%h:JSPort 
+        id="postback"
+        isolatePort="true"
+        %>
+
+        <%r:Controller
+          autoPost="true"
+          onPost='@log("Got post")'
+          %>
+          <%r:FileInput debug="true" x='[@jnet:URI].@nil.@log("URI= "+.)' contextualizeName="false" name="file" contextRelativeRoot="context:/uploads/"/%>
+        <%/r:Controller%>
+      <%/h:JSPort%> 
+    <%/h:Div%>
+  <%/t:activity-page%>
   
-<%/@namespace%>
+<%/@doclet%>
