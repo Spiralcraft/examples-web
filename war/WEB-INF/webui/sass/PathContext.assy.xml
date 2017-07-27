@@ -1,0 +1,32 @@
+<af:PathContext
+  xmlns:af="class:/spiralcraft/servlet/autofilter/"
+  xmlns:sass="class:/spiralcraft/sass/"
+  >
+
+
+  <filters>
+    <af:TranslationFilter>
+    
+      <debug>true
+      </debug>
+      <pattern>*</pattern>
+      <global>true
+      </global>
+      
+      <originalSuffix>scss
+      </originalSuffix>
+      
+      <translatedSuffix>css
+      </translatedSuffix>
+      <translator>
+        <sass:SassTranslator>
+          
+        </sass:SassTranslator>
+      </translator>
+      <contentType>text/css
+      </contentType>
+    </af:TranslationFilter>
+  </filters>
+  
+
+</af:PathContext>

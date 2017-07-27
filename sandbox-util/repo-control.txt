@@ -1,0 +1,5 @@
+[spiralcraft]+
+[com.cathive.sass]+
+[net.java.dev.jna]*
+[com.nativelibs4java]*
+[com.google.guava]*
