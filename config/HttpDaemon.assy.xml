@@ -11,7 +11,7 @@
     <httpd:HttpService>
       <traceDir>context:/trace
       </traceDir>
-      <debugIO>true
+      <debugIO>false
       </debugIO>
       
       <listeners>
