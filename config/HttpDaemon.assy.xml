@@ -9,7 +9,11 @@
   <services>
   
     <httpd:HttpService>
- 
+      <traceDir>context:/trace
+      </traceDir>
+      <debugIO>true
+      </debugIO>
+      
       <listeners>
         <net:Listener>
 

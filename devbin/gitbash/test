@@ -1,0 +1,6 @@
+#!/bin/bash
+export JAVA="/c/Program Files/Java/jdk-12.0.2/bin/java"
+ls "$JAVA"
+echo $JAVA
+echo $0
+"$JAVA" -jar ../../build/lib/ant-launcher.jar -f run/LAUNCH.ant.xml launch-gui

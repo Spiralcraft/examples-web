@@ -15,7 +15,15 @@
       
   </target>
 
+  <target name="launch-gui">
+    <devgui
+      launchArgs="--gui"
+      env="httpd"
+      codebase=".."
 
+    />
+      
+  </target>
   <import file="../build.xml"/>
 </project>
   
